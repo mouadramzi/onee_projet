@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ONEEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="lignes">
+          <Key>
+            <PropertyRef Name="N_DIL" />
+          </Key>
+          <Property Name="N_DIL" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Nature Ouvrage" Type="nvarchar" MaxLength="255" />
+          <Property Name="Montant_Contractuel" Type="float" />
+          <Property Name="Caractéristiques " Type="nvarchar" MaxLength="255" />
+          <Property Name="Distance_km" Type="float" />
+          <Property Name="Avancement" Type="float" />
+          <Property Name="Reference_ouvrage " Type="nvarchar(max)" />
+          <Property Name="Statut_DI" Type="nvarchar" MaxLength="255" />
+          <Property Name="Contractant" Type="nvarchar" MaxLength="255" />
+          <Property Name="Date_prévisionnelle_mes" Type="varchar" MaxLength="50" />
+          <Property Name="Date_référence" Type="nvarchar" MaxLength="255" />
+          <Property Name="dbetude" Type="datetime" />
+          <Property Name="dfetudes" Type="datetime" />
+          <Property Name="dbconsultation" Type="datetime" />
+          <Property Name="dfconsultation" Type="datetime" />
+          <Property Name="dbrealisation" Type="datetime" />
+          <Property Name="dfrealisation" Type="datetime" />
+          <Property Name="dbrealiser" Type="datetime" />
+          <Property Name="dfrealiser" Type="datetime" />
+        </EntityType>
+        <EntityType Name="poste">
+          <Key>
+            <PropertyRef Name="N_DI" />
+          </Key>
+          <Property Name="Nature_Ouvrage" Type="nvarchar" MaxLength="255" />
+          <Property Name="Montant_Contractuel_(kDH)" Type="nvarchar" MaxLength="255" />
+          <Property Name="Tensions_Transformation " Type="nvarchar" MaxLength="255" />
+          <Property Name="Puissance " Type="nvarchar" MaxLength="255" />
+          <Property Name="unité" Type="nvarchar" MaxLength="255" />
+          <Property Name="Avancement " Type="float" />
+          <Property Name="N_DI" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Statut DI" Type="nvarchar" MaxLength="255" />
+          <Property Name="Contractant" Type="nvarchar" MaxLength="255" />
+          <Property Name="Date_prévisionnelle_mes" Type="float" />
+          <Property Name="Date_référence" Type="varchar" MaxLength="50" />
+          <Property Name="dbetude" Type="datetime" />
+          <Property Name="dfetudes" Type="datetime" />
+          <Property Name="dbconsultation" Type="datetime" />
+          <Property Name="dfconsultation" Type="datetime" />
+          <Property Name="dbrealisation" Type="datetime" />
+          <Property Name="dfrealisation" Type="datetime" />
+          <Property Name="dbrealiser" Type="datetime" />
+        </EntityType>
+        <EntityType Name="postes">
+          <Key>
+            <PropertyRef Name="N_DIP" />
+          </Key>
+          <Property Name="N_DIP" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Date_prévisionnelle_mes" Type="datetime" />
+          <Property Name="Nature_Ouvrage" Type="nvarchar" MaxLength="255" />
+          <Property Name="Montant_Contractuel_(kDH)" Type="nvarchar" MaxLength="255" />
+          <Property Name="Tensions_Transformation " Type="nvarchar" MaxLength="255" />
+          <Property Name="Puissance " Type="nvarchar" MaxLength="255" />
+          <Property Name="unité" Type="nvarchar" MaxLength="255" />
+          <Property Name="Avancement " Type="float" />
+          <Property Name="Statut_DI" Type="nvarchar" MaxLength="255" />
+          <Property Name="Contractant" Type="nvarchar" MaxLength="255" />
+          <Property Name="Date_référence" Type="nvarchar" MaxLength="255" />
+          <Property Name="dbetude" Type="datetime" />
+          <Property Name="dfetudes" Type="datetime" />
+          <Property Name="dbconsultation" Type="datetime" />
+          <Property Name="dfconsultation" Type="datetime" />
+          <Property Name="dbrealisation" Type="datetime" />
+          <Property Name="dfrealisation" Type="datetime" />
+          <Property Name="dbrealiser" Type="datetime" />
+          <Property Name="dfrealiser" Type="datetime" />
+        </EntityType>
+        <EntityType Name="projet">
+          <Key>
+            <PropertyRef Name="N_DI" />
+          </Key>
+          <Property Name="N_DI" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Direction" Type="nvarchar" MaxLength="255" />
+          <Property Name="DESIGNATION" Type="nvarchar" MaxLength="255" />
+          <Property Name="Financement" Type="nvarchar" MaxLength="255" />
+          <Property Name="Finalite" Type="nvarchar" MaxLength="255" />
+          <Property Name="FICHE" Type="nvarchar" MaxLength="255" />
+          <Property Name="Montant_DI" Type="float" />
+          <Property Name="region" Type="nvarchar" MaxLength="255" />
+          <Property Name="Observations" Type="nvarchar(max)" />
+          <Property Name="annee" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityContainer Name="ONEEModelStoreContainer">
+          <EntitySet Name="lignes" EntityType="Self.lignes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="poste" EntityType="Self.poste" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="postes" EntityType="Self.postes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="projet" EntityType="Self.projet" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ONEEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ONEEEntities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="projet" EntityType="ONEEModel.projet" />
+          <EntitySet Name="poste" EntityType="ONEEModel.poste" />
+          <EntitySet Name="lignes" EntityType="ONEEModel.lignes" />
+          <EntitySet Name="postes" EntityType="ONEEModel.postes" />
+        </EntityContainer>
+        <EntityType Name="projet">
+          <Key>
+            <PropertyRef Name="N_DI" />
+          </Key>
+          <Property Name="N_DI" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Direction" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DESIGNATION" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Financement" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Finalite" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FICHE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Montant_DI" Type="Double" />
+          <Property Name="region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Observations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="annee" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="poste">
+          <Key>
+            <PropertyRef Name="N_DI" />
+          </Key>
+          <Property Name="Nature_Ouvrage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Montant_Contractuel__kDH_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Tensions_Transformation_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Puissance_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="unité" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Avancement_" Type="Double" />
+          <Property Name="N_DI" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Statut_DI" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Contractant" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Date_prévisionnelle_mes" Type="Double" />
+          <Property Name="Date_référence" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="dbetude" Type="DateTime" Precision="3" />
+          <Property Name="dfetudes" Type="DateTime" Precision="3" />
+          <Property Name="dbconsultation" Type="DateTime" Precision="3" />
+          <Property Name="dfconsultation" Type="DateTime" Precision="3" />
+          <Property Name="dbrealisation" Type="DateTime" Precision="3" />
+          <Property Name="dfrealisation" Type="DateTime" Precision="3" />
+          <Property Name="dbrealiser" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="lignes">
+          <Key>
+            <PropertyRef Name="N_DIL" />
+          </Key>
+          <Property Name="N_DIL" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Nature_Ouvrage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Montant_Contractuel" Type="Double" />
+          <Property Name="Caractéristiques_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Distance_km" Type="Double" />
+          <Property Name="Avancement" Type="Double" />
+          <Property Name="Reference_ouvrage_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Statut_DI" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Contractant" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Date_prévisionnelle_mes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Date_référence" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="dbetude" Type="DateTime" Precision="3" />
+          <Property Name="dfetudes" Type="DateTime" Precision="3" />
+          <Property Name="dbconsultation" Type="DateTime" Precision="3" />
+          <Property Name="dfconsultation" Type="DateTime" Precision="3" />
+          <Property Name="dbrealisation" Type="DateTime" Precision="3" />
+          <Property Name="dfrealisation" Type="DateTime" Precision="3" />
+          <Property Name="dbrealiser" Type="DateTime" Precision="3" />
+          <Property Name="dfrealiser" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="postes">
+          <Key>
+            <PropertyRef Name="N_DIP" />
+          </Key>
+          <Property Name="N_DIP" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Date_prévisionnelle_mes" Type="DateTime" Precision="3" />
+          <Property Name="Nature_Ouvrage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Montant_Contractuel__kDH_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Tensions_Transformation_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Puissance_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="unité" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Avancement_" Type="Double" />
+          <Property Name="Statut_DI" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Contractant" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Date_référence" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="dbetude" Type="DateTime" Precision="3" />
+          <Property Name="dfetudes" Type="DateTime" Precision="3" />
+          <Property Name="dbconsultation" Type="DateTime" Precision="3" />
+          <Property Name="dfconsultation" Type="DateTime" Precision="3" />
+          <Property Name="dbrealisation" Type="DateTime" Precision="3" />
+          <Property Name="dfrealisation" Type="DateTime" Precision="3" />
+          <Property Name="dbrealiser" Type="DateTime" Precision="3" />
+          <Property Name="dfrealiser" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ONEEModelStoreContainer" CdmEntityContainer="ONEEEntities4">
+          <EntitySetMapping Name="projet">
+            <EntityTypeMapping TypeName="ONEEModel.projet">
+              <MappingFragment StoreEntitySet="projet">
+                <ScalarProperty Name="annee" ColumnName="annee" />
+                <ScalarProperty Name="Observations" ColumnName="Observations" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="Montant_DI" ColumnName="Montant_DI" />
+                <ScalarProperty Name="FICHE" ColumnName="FICHE" />
+                <ScalarProperty Name="Finalite" ColumnName="Finalite" />
+                <ScalarProperty Name="Financement" ColumnName="Financement" />
+                <ScalarProperty Name="DESIGNATION" ColumnName="DESIGNATION" />
+                <ScalarProperty Name="Direction" ColumnName="Direction" />
+                <ScalarProperty Name="N_DI" ColumnName="N_DI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="poste">
+            <EntityTypeMapping TypeName="ONEEModel.poste">
+              <MappingFragment StoreEntitySet="poste">
+                <ScalarProperty Name="dbrealiser" ColumnName="dbrealiser" />
+                <ScalarProperty Name="dfrealisation" ColumnName="dfrealisation" />
+                <ScalarProperty Name="dbrealisation" ColumnName="dbrealisation" />
+                <ScalarProperty Name="dfconsultation" ColumnName="dfconsultation" />
+                <ScalarProperty Name="dbconsultation" ColumnName="dbconsultation" />
+                <ScalarProperty Name="dfetudes" ColumnName="dfetudes" />
+                <ScalarProperty Name="dbetude" ColumnName="dbetude" />
+                <ScalarProperty Name="Date_référence" ColumnName="Date_référence" />
+                <ScalarProperty Name="Date_prévisionnelle_mes" ColumnName="Date_prévisionnelle_mes" />
+                <ScalarProperty Name="Contractant" ColumnName="Contractant" />
+                <ScalarProperty Name="Statut_DI" ColumnName="Statut DI" />
+                <ScalarProperty Name="N_DI" ColumnName="N_DI" />
+                <ScalarProperty Name="Avancement_" ColumnName="Avancement " />
+                <ScalarProperty Name="unité" ColumnName="unité" />
+                <ScalarProperty Name="Puissance_" ColumnName="Puissance " />
+                <ScalarProperty Name="Tensions_Transformation_" ColumnName="Tensions_Transformation " />
+                <ScalarProperty Name="Montant_Contractuel__kDH_" ColumnName="Montant_Contractuel_(kDH)" />
+                <ScalarProperty Name="Nature_Ouvrage" ColumnName="Nature_Ouvrage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lignes">
+            <EntityTypeMapping TypeName="ONEEModel.lignes">
+              <MappingFragment StoreEntitySet="lignes">
+                <ScalarProperty Name="dfrealiser" ColumnName="dfrealiser" />
+                <ScalarProperty Name="dbrealiser" ColumnName="dbrealiser" />
+                <ScalarProperty Name="dfrealisation" ColumnName="dfrealisation" />
+                <ScalarProperty Name="dbrealisation" ColumnName="dbrealisation" />
+                <ScalarProperty Name="dfconsultation" ColumnName="dfconsultation" />
+                <ScalarProperty Name="dbconsultation" ColumnName="dbconsultation" />
+                <ScalarProperty Name="dfetudes" ColumnName="dfetudes" />
+                <ScalarProperty Name="dbetude" ColumnName="dbetude" />
+                <ScalarProperty Name="Date_référence" ColumnName="Date_référence" />
+                <ScalarProperty Name="Date_prévisionnelle_mes" ColumnName="Date_prévisionnelle_mes" />
+                <ScalarProperty Name="Contractant" ColumnName="Contractant" />
+                <ScalarProperty Name="Statut_DI" ColumnName="Statut_DI" />
+                <ScalarProperty Name="Reference_ouvrage_" ColumnName="Reference_ouvrage " />
+                <ScalarProperty Name="Avancement" ColumnName="Avancement" />
+                <ScalarProperty Name="Distance_km" ColumnName="Distance_km" />
+                <ScalarProperty Name="Caractéristiques_" ColumnName="Caractéristiques " />
+                <ScalarProperty Name="Montant_Contractuel" ColumnName="Montant_Contractuel" />
+                <ScalarProperty Name="Nature_Ouvrage" ColumnName="Nature Ouvrage" />
+                <ScalarProperty Name="N_DIL" ColumnName="N_DIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="postes">
+            <EntityTypeMapping TypeName="ONEEModel.postes">
+              <MappingFragment StoreEntitySet="postes">
+                <ScalarProperty Name="dfrealiser" ColumnName="dfrealiser" />
+                <ScalarProperty Name="dbrealiser" ColumnName="dbrealiser" />
+                <ScalarProperty Name="dfrealisation" ColumnName="dfrealisation" />
+                <ScalarProperty Name="dbrealisation" ColumnName="dbrealisation" />
+                <ScalarProperty Name="dfconsultation" ColumnName="dfconsultation" />
+                <ScalarProperty Name="dbconsultation" ColumnName="dbconsultation" />
+                <ScalarProperty Name="dfetudes" ColumnName="dfetudes" />
+                <ScalarProperty Name="dbetude" ColumnName="dbetude" />
+                <ScalarProperty Name="Date_référence" ColumnName="Date_référence" />
+                <ScalarProperty Name="Contractant" ColumnName="Contractant" />
+                <ScalarProperty Name="Statut_DI" ColumnName="Statut_DI" />
+                <ScalarProperty Name="Avancement_" ColumnName="Avancement " />
+                <ScalarProperty Name="unité" ColumnName="unité" />
+                <ScalarProperty Name="Puissance_" ColumnName="Puissance " />
+                <ScalarProperty Name="Tensions_Transformation_" ColumnName="Tensions_Transformation " />
+                <ScalarProperty Name="Montant_Contractuel__kDH_" ColumnName="Montant_Contractuel_(kDH)" />
+                <ScalarProperty Name="Nature_Ouvrage" ColumnName="Nature_Ouvrage" />
+                <ScalarProperty Name="Date_prévisionnelle_mes" ColumnName="Date_prévisionnelle_mes" />
+                <ScalarProperty Name="N_DIP" ColumnName="N_DIP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
