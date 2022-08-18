@@ -16,7 +16,7 @@ namespace ONEEprjt
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new infoglobale());
+            Application.Run(new searchbydate());
         }
     }
 }

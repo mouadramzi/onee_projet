@@ -24,5 +24,6 @@ namespace ONEEprjt
         public string region { get; set; }
         public string Observations { get; set; }
         public string annee { get; set; }
+        public string sous_finalite { get; set; }
     }
 }

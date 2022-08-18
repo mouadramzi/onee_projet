@@ -19,8 +19,10 @@ namespace ONEEprjt
 
         private void crystalReportViewer1_Load(object sender, EventArgs e)
         {
-            CrystalReport2 crystal = new CrystalReport2();
-            crystalReportViewer1.ReportSource = crystal;
+            //CrystalReport2 crystal = new CrystalReport2();
+            //crystalReportViewer1.ReportSource = crystal;
+         CrystalReport3 crystal = new CrystalReport3();
+             crystalReportViewer1.ReportSource = crystal;
         }
 
         private void link1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -58,6 +60,11 @@ namespace ONEEprjt
             rp.Close();
             supprimer dp = new supprimer();
             dp.Show();
+        }
+
+        private void rapport_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

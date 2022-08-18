@@ -17,7 +17,7 @@ namespace ONEEprjt
         public string Nature_Ouvrage { get; set; }
         public string Montant_Contractuel__kDH_ { get; set; }
         public string Tensions_Transformation_ { get; set; }
-        public string Puissance_ { get; set; }
+        public Nullable<double> Puissance_ { get; set; }
         public string unité { get; set; }
         public Nullable<double> Avancement_ { get; set; }
         public string N_DI { get; set; }

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(infoglobale));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.supplink = new System.Windows.Forms.LinkLabel();
             this.modifierlink = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -53,7 +54,6 @@
             this.direction = new System.Windows.Forms.TextBox();
             this.designation = new System.Windows.Forms.TextBox();
             this.finance = new System.Windows.Forms.TextBox();
-            this.finalite = new System.Windows.Forms.TextBox();
             this.ndi = new System.Windows.Forms.TextBox();
             this.fiche = new System.Windows.Forms.TextBox();
             this.montant = new System.Windows.Forms.TextBox();
@@ -103,10 +103,12 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
-            this.region = new System.Windows.Forms.TextBox();
             this.datemes = new System.Windows.Forms.TextBox();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.cachedCrystalReport21 = new ONEEprjt.CachedCrystalReport2();
+            this.cachedCrystalReport21 = new ONEEprjt.CachedDistanceannee();
+            this.finalite = new System.Windows.Forms.ComboBox();
+            this.region = new System.Windows.Forms.ComboBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.sousfinalite = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -127,6 +129,23 @@
             this.panel1.Size = new System.Drawing.Size(167, 535);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.BackColor = System.Drawing.Color.DarkBlue;
+            this.linkLabel2.DisabledLinkColor = System.Drawing.Color.Yellow;
+            this.linkLabel2.Font = new System.Drawing.Font("Modern No. 20", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel2.ForeColor = System.Drawing.Color.White;
+            this.linkLabel2.LinkColor = System.Drawing.Color.Yellow;
+            this.linkLabel2.Location = new System.Drawing.Point(38, 276);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(79, 21);
+            this.linkLabel2.TabIndex = 6;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Rapport";
+            this.linkLabel2.UseMnemonic = false;
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // supplink
             // 
@@ -257,7 +276,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(183, 165);
+            this.label7.Location = new System.Drawing.Point(183, 203);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(32, 13);
             this.label7.TabIndex = 7;
@@ -266,7 +285,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(183, 192);
+            this.label8.Location = new System.Drawing.Point(183, 230);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 13);
             this.label8.TabIndex = 8;
@@ -275,7 +294,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(183, 219);
+            this.label9.Location = new System.Drawing.Point(183, 257);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 13);
             this.label9.TabIndex = 9;
@@ -311,7 +330,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(183, 247);
+            this.label13.Location = new System.Drawing.Point(183, 285);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(103, 13);
             this.label13.TabIndex = 14;
@@ -329,7 +348,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(183, 368);
+            this.label15.Location = new System.Drawing.Point(176, 396);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(69, 13);
             this.label15.TabIndex = 16;
@@ -339,7 +358,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(183, 314);
+            this.label16.Location = new System.Drawing.Point(183, 352);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(55, 13);
             this.label16.TabIndex = 15;
@@ -370,24 +389,16 @@
             this.finance.TabIndex = 19;
             this.finance.Text = "NULL";
             // 
-            // finalite
-            // 
-            this.finalite.Location = new System.Drawing.Point(351, 140);
-            this.finalite.Name = "finalite";
-            this.finalite.Size = new System.Drawing.Size(100, 20);
-            this.finalite.TabIndex = 20;
-            this.finalite.Text = "NULL";
-            // 
             // ndi
             // 
-            this.ndi.Location = new System.Drawing.Point(351, 166);
+            this.ndi.Location = new System.Drawing.Point(351, 204);
             this.ndi.Name = "ndi";
             this.ndi.Size = new System.Drawing.Size(100, 20);
             this.ndi.TabIndex = 21;
             // 
             // fiche
             // 
-            this.fiche.Location = new System.Drawing.Point(351, 192);
+            this.fiche.Location = new System.Drawing.Point(351, 230);
             this.fiche.Name = "fiche";
             this.fiche.Size = new System.Drawing.Size(100, 20);
             this.fiche.TabIndex = 22;
@@ -395,7 +406,7 @@
             // 
             // montant
             // 
-            this.montant.Location = new System.Drawing.Point(351, 218);
+            this.montant.Location = new System.Drawing.Point(351, 256);
             this.montant.Name = "montant";
             this.montant.Size = new System.Drawing.Size(100, 20);
             this.montant.TabIndex = 23;
@@ -403,7 +414,7 @@
             // 
             // observation
             // 
-            this.observation.Location = new System.Drawing.Point(258, 352);
+            this.observation.Location = new System.Drawing.Point(251, 380);
             this.observation.MaxLength = 327672;
             this.observation.Multiline = true;
             this.observation.Name = "observation";
@@ -810,7 +821,7 @@
             // 
             // tauxavancement
             // 
-            this.tauxavancement.Location = new System.Drawing.Point(351, 248);
+            this.tauxavancement.Location = new System.Drawing.Point(351, 286);
             this.tauxavancement.Name = "tauxavancement";
             this.tauxavancement.Size = new System.Drawing.Size(100, 20);
             this.tauxavancement.TabIndex = 28;
@@ -818,7 +829,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(371, 452);
+            this.button2.Location = new System.Drawing.Point(364, 480);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(129, 44);
             this.button2.TabIndex = 47;
@@ -827,7 +838,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(212, 452);
+            this.button1.Location = new System.Drawing.Point(205, 480);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 44);
             this.button1.TabIndex = 46;
@@ -838,43 +849,63 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(183, 279);
+            this.label32.Location = new System.Drawing.Point(183, 317);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(41, 13);
             this.label32.TabIndex = 48;
             this.label32.Text = "Region";
             // 
-            // region
-            // 
-            this.region.Location = new System.Drawing.Point(351, 280);
-            this.region.Name = "region";
-            this.region.Size = new System.Drawing.Size(100, 20);
-            this.region.TabIndex = 49;
-            this.region.Text = "NULL";
-            // 
             // datemes
             // 
-            this.datemes.Location = new System.Drawing.Point(351, 311);
+            this.datemes.Location = new System.Drawing.Point(351, 349);
             this.datemes.Name = "datemes";
             this.datemes.Size = new System.Drawing.Size(100, 20);
             this.datemes.TabIndex = 54;
             // 
-            // linkLabel2
+            // finalite
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.BackColor = System.Drawing.Color.DarkBlue;
-            this.linkLabel2.DisabledLinkColor = System.Drawing.Color.Yellow;
-            this.linkLabel2.Font = new System.Drawing.Font("Modern No. 20", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel2.ForeColor = System.Drawing.Color.White;
-            this.linkLabel2.LinkColor = System.Drawing.Color.Yellow;
-            this.linkLabel2.Location = new System.Drawing.Point(38, 276);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(79, 21);
-            this.linkLabel2.TabIndex = 6;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Rapport";
-            this.linkLabel2.UseMnemonic = false;
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            this.finalite.FormattingEnabled = true;
+            this.finalite.Location = new System.Drawing.Point(243, 139);
+            this.finalite.Name = "finalite";
+            this.finalite.Size = new System.Drawing.Size(208, 21);
+            this.finalite.TabIndex = 129;
+            // 
+            // region
+            // 
+            this.region.FormattingEnabled = true;
+            this.region.Items.AddRange(new object[] {
+            "Tanger - Tétouan - Al Hoceima",
+            "Fès - Meknès",
+            "L\'Oriental",
+            "Rabat - Salé - Kénitra",
+            "Casablanca - Settat",
+            "Beni Mellal - Khénifra",
+            "Marrakech - Safi",
+            "Drâa - Tafilalet",
+            "Souss -Massa",
+            "Guelmim - Oued Noun",
+            "Laâyoune - Saguia al Hamra",
+            "Dakhla - Oued Ed-Dahab"});
+            this.region.Location = new System.Drawing.Point(243, 315);
+            this.region.Name = "region";
+            this.region.Size = new System.Drawing.Size(208, 21);
+            this.region.TabIndex = 130;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(183, 172);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(67, 13);
+            this.label33.TabIndex = 131;
+            this.label33.Text = "Sous_finalite";
+            // 
+            // sousfinalite
+            // 
+            this.sousfinalite.Location = new System.Drawing.Point(351, 173);
+            this.sousfinalite.Name = "sousfinalite";
+            this.sousfinalite.Size = new System.Drawing.Size(100, 20);
+            this.sousfinalite.TabIndex = 132;
             // 
             // infoglobale
             // 
@@ -882,9 +913,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1124, 530);
+            this.Controls.Add(this.label33);
+            this.Controls.Add(this.sousfinalite);
+            this.Controls.Add(this.region);
+            this.Controls.Add(this.finalite);
             this.Controls.Add(this.datemes);
             this.Controls.Add(this.label32);
-            this.Controls.Add(this.region);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
@@ -909,7 +943,6 @@
             this.Controls.Add(this.montant);
             this.Controls.Add(this.fiche);
             this.Controls.Add(this.ndi);
-            this.Controls.Add(this.finalite);
             this.Controls.Add(this.finance);
             this.Controls.Add(this.designation);
             this.Controls.Add(this.direction);
@@ -952,7 +985,6 @@
         private System.Windows.Forms.TextBox direction;
         private System.Windows.Forms.TextBox designation;
         private System.Windows.Forms.TextBox finance;
-        private System.Windows.Forms.TextBox finalite;
         private System.Windows.Forms.TextBox ndi;
         private System.Windows.Forms.TextBox fiche;
         private System.Windows.Forms.TextBox montant;
@@ -1001,13 +1033,16 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.TextBox region;
         private System.Windows.Forms.LinkLabel modifierlink;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.LinkLabel supplink;
         private System.Windows.Forms.TextBox datemes;
         private System.Windows.Forms.LinkLabel linkLabel2;
-        private CachedCrystalReport2 cachedCrystalReport21;
+        private CachedDistanceannee cachedCrystalReport21;
+        private System.Windows.Forms.ComboBox finalite;
+        private System.Windows.Forms.ComboBox region;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox sousfinalite;
     }
 }

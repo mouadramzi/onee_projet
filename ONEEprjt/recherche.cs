@@ -44,6 +44,7 @@ namespace ONEEprjt
 
         }
 
+
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
@@ -126,7 +127,7 @@ namespace ONEEprjt
                 + pnature.Text + "'" + "or [Montant_Contractuel_(kDH)]  ='"
                 + pmontant.Text + "'" + "or Tensions_Transformation ='"
                 + ptension.Text + "'" + "or Puissance ='"
-                + ppuissnace.Text + "'" + "or unité ='" + punite.Text + "'"
+                + double.Parse(ppuissnace.Text) + "'" + "or unité ='" + punite.Text + "'"
                 + "or Avancement  ='" + pavancement.Text + "'";
             SqlCommand cmd = new SqlCommand();
 
@@ -249,5 +250,17 @@ namespace ONEEprjt
         {
 
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            recherche r = new recherche();
+            this.Hide();
+            r.Close();
+            searchbydate sf = new searchbydate();
+            sf.Show();
+
+
+
+                        }
     }
 }

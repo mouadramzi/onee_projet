@@ -28,6 +28,5 @@ namespace ONEEprjt
         public virtual DbSet<projet> projet { get; set; }
         public virtual DbSet<poste> poste { get; set; }
         public virtual DbSet<lignes> lignes { get; set; }
-        public virtual DbSet<postes> postes { get; set; }
     }
 }

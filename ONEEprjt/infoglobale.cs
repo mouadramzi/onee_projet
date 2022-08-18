@@ -131,7 +131,7 @@ namespace ONEEprjt
                         Tensions_Transformation_ = ptension.Text,
                         unité = punite.Text,
                         Avancement_ = double.Parse(pavancement.Text),
-                        Puissance_ = ppuissnace.Text,
+                        Puissance_ = double.Parse(ppuissnace.Text),
                         dbetude = now1   ,
                         Statut_DI = comboBox2.Text,
                         Date_prévisionnelle_mes = double.Parse(dateperevisionp.Text),
@@ -179,6 +179,15 @@ namespace ONEEprjt
             sf.Show();
 
         }
+        List<projet> l = new List<projet>();
+        projet Search(string code)
+        {
+            foreach (projet x in l)
+                if (code == x.N_DI)
+                    return x;
+            return null;
+        }
+
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -186,35 +195,42 @@ namespace ONEEprjt
             {
                 if (!(ndi.Text == ""))
                 {
-
-
-                    if (radioButton1.Checked) { lignesinfo(); }
-                    else if (radioButton2.Checked) { postesinfo(); }
-
-                    projet i = new projet
+                    if (Search((ndi.Text)) != null)
                     {
+                        if (radioButton1.Checked) { lignesinfo(); }
+                        else if (radioButton2.Checked) { postesinfo(); }
 
-                        Direction = direction.Text,
-                        DESIGNATION = designation.Text,
-                        Financement = finance.Text,
-                        Finalite = finalite.Text,
-                        N_DI = ndi.Text,
-                        FICHE = fiche.Text,
-                        Montant_DI = double.Parse(montant.Text),
-                         region = region.Text,
-                        annee = datemes.Text,
-                        Observations = observation.Text
+                        projet i = new projet
+                        {
+
+                            Direction = direction.Text,
+                            DESIGNATION = designation.Text,
+                            Financement = finance.Text,
+                            Finalite = finalite.Text,
+                            N_DI = ndi.Text,
+                            FICHE = fiche.Text,
+                            Montant_DI = double.Parse(montant.Text),
+                            region = region.Text,
+                            annee = datemes.Text,
+                            Observations = observation.Text,
+                            sous_finalite = sousfinalite.Text
 
 
-                    };
-                    o.projet.Add(i);
-                    o.SaveChanges();
-                    List<projet> infos = new List<projet>();
-                    infos = o.projet.ToList();
-                    dataGridView1.DataSource = o.projet.ToList();
+                        };
+                        o.projet.Add(i);
+                        o.SaveChanges();
+                        List<projet> infos = new List<projet>();
+                        infos = o.projet.ToList();
+                        dataGridView1.DataSource = o.projet.ToList();
 
-                    MessageBox.Show("Bien Ajouter");
-                    return;
+                        MessageBox.Show("Bien Ajouter");
+                        return;
+                    }
+
+                     else
+                    {
+                        MessageBox.Show("Existe deja ce numero ");
+                    }
 
                 }
                 else
