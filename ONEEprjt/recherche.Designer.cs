@@ -59,6 +59,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button7 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.ndip = new System.Windows.Forms.TextBox();
@@ -77,11 +78,11 @@
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.regiontxt = new System.Windows.Forms.ComboBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.datemes = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ndiprojet = new System.Windows.Forms.TextBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.region = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -90,7 +91,6 @@
             this.Financement = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.regiontxt = new System.Windows.Forms.TextBox();
             this.montant = new System.Windows.Forms.TextBox();
             this.fiche = new System.Windows.Forms.TextBox();
             this.finalite = new System.Windows.Forms.TextBox();
@@ -100,7 +100,7 @@
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.linkLabel7 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -127,6 +127,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DarkBlue;
+            this.panel2.Controls.Add(this.linkLabel7);
             this.panel2.Controls.Add(this.linkLabel3);
             this.panel2.Controls.Add(this.linkLabel2);
             this.panel2.Controls.Add(this.linkLabel4);
@@ -310,6 +311,7 @@
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lignes";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // button1
             // 
@@ -454,6 +456,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button7);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.dataGridView2);
             this.groupBox2.Controls.Add(this.ndip);
@@ -477,6 +480,17 @@
             this.groupBox2.TabIndex = 42;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "poste";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(580, 186);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(120, 23);
+            this.button7.TabIndex = 46;
+            this.button7.Text = "Export";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // label2
             // 
@@ -621,12 +635,11 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.regiontxt);
             this.groupBox3.Controls.Add(this.button6);
             this.groupBox3.Controls.Add(this.datemes);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.ndiprojet);
-            this.groupBox3.Controls.Add(this.label32);
-            this.groupBox3.Controls.Add(this.region);
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.label9);
@@ -635,7 +648,6 @@
             this.groupBox3.Controls.Add(this.Financement);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.regiontxt);
             this.groupBox3.Controls.Add(this.montant);
             this.groupBox3.Controls.Add(this.fiche);
             this.groupBox3.Controls.Add(this.finalite);
@@ -653,9 +665,40 @@
             this.groupBox3.Text = "Projet";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
+            // regiontxt
+            // 
+            this.regiontxt.FormattingEnabled = true;
+            this.regiontxt.Items.AddRange(new object[] {
+            "Tanger - Tétouan - Al Hoceima",
+            "Fès - Meknès",
+            "L\'Oriental",
+            "Rabat - Salé - Kénitra",
+            "Casablanca - Settat",
+            "Beni Mellal - Khénifra",
+            "Marrakech - Safi",
+            "Drâa - Tafilalet",
+            "Souss -Massa",
+            "Guelmim - Oued Noun",
+            "Laâyoune - Saguia al Hamra",
+            "Dakhla - Oued Ed-Dahab"});
+            this.regiontxt.Location = new System.Drawing.Point(66, 180);
+            this.regiontxt.Name = "regiontxt";
+            this.regiontxt.Size = new System.Drawing.Size(208, 21);
+            this.regiontxt.TabIndex = 131;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(697, 237);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(120, 23);
+            this.button6.TabIndex = 111;
+            this.button6.Text = "Rechercher par date";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // datemes
             // 
-            this.datemes.Location = new System.Drawing.Point(174, 238);
+            this.datemes.Location = new System.Drawing.Point(89, 210);
             this.datemes.Name = "datemes";
             this.datemes.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.datemes.Size = new System.Drawing.Size(185, 20);
@@ -677,26 +720,10 @@
             this.ndiprojet.Size = new System.Drawing.Size(100, 20);
             this.ndiprojet.TabIndex = 109;
             // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(6, 211);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(41, 13);
-            this.label32.TabIndex = 106;
-            this.label32.Text = "Region";
-            // 
-            // region
-            // 
-            this.region.Location = new System.Drawing.Point(174, 212);
-            this.region.Name = "region";
-            this.region.Size = new System.Drawing.Size(100, 20);
-            this.region.TabIndex = 107;
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 241);
+            this.label16.Location = new System.Drawing.Point(6, 210);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(55, 13);
             this.label16.TabIndex = 97;
@@ -764,13 +791,6 @@
             this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 90;
             this.label5.Text = "Direction";
-            // 
-            // regiontxt
-            // 
-            this.regiontxt.Location = new System.Drawing.Point(174, 186);
-            this.regiontxt.Name = "regiontxt";
-            this.regiontxt.Size = new System.Drawing.Size(100, 20);
-            this.regiontxt.TabIndex = 104;
             // 
             // montant
             // 
@@ -843,15 +863,22 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
+            // linkLabel7
             // 
-            this.button6.Location = new System.Drawing.Point(697, 237);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(120, 23);
-            this.button6.TabIndex = 111;
-            this.button6.Text = "Rechercher par date";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.linkLabel7.AutoSize = true;
+            this.linkLabel7.BackColor = System.Drawing.Color.DarkBlue;
+            this.linkLabel7.DisabledLinkColor = System.Drawing.Color.Yellow;
+            this.linkLabel7.Font = new System.Drawing.Font("Modern No. 20", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel7.ForeColor = System.Drawing.Color.White;
+            this.linkLabel7.LinkColor = System.Drawing.Color.Yellow;
+            this.linkLabel7.Location = new System.Drawing.Point(47, 223);
+            this.linkLabel7.Name = "linkLabel7";
+            this.linkLabel7.Size = new System.Drawing.Size(86, 21);
+            this.linkLabel7.TabIndex = 7;
+            this.linkLabel7.TabStop = true;
+            this.linkLabel7.Text = "Export : ";
+            this.linkLabel7.UseMnemonic = false;
+            this.linkLabel7.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel7_LinkClicked);
             // 
             // recherche
             // 
@@ -859,7 +886,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1301, 749);
+            this.ClientSize = new System.Drawing.Size(1318, 749);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -931,8 +958,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.TextBox region;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label9;
@@ -941,7 +966,6 @@
         private System.Windows.Forms.Label Financement;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox regiontxt;
         private System.Windows.Forms.TextBox montant;
         private System.Windows.Forms.TextBox fiche;
         private System.Windows.Forms.TextBox finalite;
@@ -959,5 +983,8 @@
         private System.Windows.Forms.LinkLabel linkLabel6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.ComboBox regiontxt;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.LinkLabel linkLabel7;
     }
 }

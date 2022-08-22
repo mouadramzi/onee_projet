@@ -23,8 +23,8 @@ namespace ONEEprjt
         public string Reference_ouvrage_ { get; set; }
         public string Statut_DI { get; set; }
         public string Contractant { get; set; }
-        public string Date_prévisionnelle_mes { get; set; }
-        public string Date_référence { get; set; }
+        public Nullable<System.DateTime> Date_prévisionnelle_mes { get; set; }
+        public Nullable<System.DateTime> date_miseenservice { get; set; }
         public Nullable<System.DateTime> dbetude { get; set; }
         public Nullable<System.DateTime> dfetudes { get; set; }
         public Nullable<System.DateTime> dbconsultation { get; set; }
@@ -33,5 +33,6 @@ namespace ONEEprjt
         public Nullable<System.DateTime> dfrealisation { get; set; }
         public Nullable<System.DateTime> dbrealiser { get; set; }
         public Nullable<System.DateTime> dfrealiser { get; set; }
+        public Nullable<int> annee { get; set; }
     }
 }

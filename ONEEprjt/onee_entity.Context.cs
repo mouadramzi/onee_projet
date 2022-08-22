@@ -25,8 +25,8 @@ namespace ONEEprjt
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<projet> projet { get; set; }
         public virtual DbSet<poste> poste { get; set; }
+        public virtual DbSet<projet> projet { get; set; }
         public virtual DbSet<lignes> lignes { get; set; }
     }
 }

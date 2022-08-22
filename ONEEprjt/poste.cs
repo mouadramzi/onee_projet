@@ -14,17 +14,17 @@ namespace ONEEprjt
     
     public partial class poste
     {
+        public string N_DI { get; set; }
         public string Nature_Ouvrage { get; set; }
         public string Montant_Contractuel__kDH_ { get; set; }
         public string Tensions_Transformation_ { get; set; }
         public Nullable<double> Puissance_ { get; set; }
         public string unité { get; set; }
         public Nullable<double> Avancement_ { get; set; }
-        public string N_DI { get; set; }
         public string Statut_DI { get; set; }
         public string Contractant { get; set; }
-        public Nullable<double> Date_prévisionnelle_mes { get; set; }
-        public string Date_référence { get; set; }
+        public Nullable<System.DateTime> Date_prévisionnelle_mes { get; set; }
+        public Nullable<System.DateTime> Date_miseenservice { get; set; }
         public Nullable<System.DateTime> dbetude { get; set; }
         public Nullable<System.DateTime> dfetudes { get; set; }
         public Nullable<System.DateTime> dbconsultation { get; set; }
@@ -32,5 +32,6 @@ namespace ONEEprjt
         public Nullable<System.DateTime> dbrealisation { get; set; }
         public Nullable<System.DateTime> dfrealisation { get; set; }
         public Nullable<System.DateTime> dbrealiser { get; set; }
+        public Nullable<int> annee { get; set; }
     }
 }

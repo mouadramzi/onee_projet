@@ -21,17 +21,32 @@ namespace ONEEprjt
         }
         ONEEEntities4 o = new ONEEEntities4();
         SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Model1"].ConnectionString);
-
+        string req;
         private void button5_Click(object sender, EventArgs e)
         {
          
-                dataGridView3.DataSource = null;
+                dataGridView1.DataSource = null;
                 con.Open();
-                
-                string req = "select * from projet p  join poste l on p.N_DI = l.N_DI where p.N_DI = '" +  ndiprojet.Text+"' or '" + dateentree.Text +"'" +"between l.dbetude and GETDATE() or finalite = '"+comboBox1.Text +"' or region like '"+comboBox2.Text+ "' or Date_prévisionnelle_mes like'" + dateTimePicker2.Text.ToString()+"'";
+            string n = ndiprojet.Text.ToString();
+            string d = designation.Text.ToString();
+            string f = finance.Text.ToString();
+            string finalite = comboBox1.Text.ToString();
+            string reg = comboBox2.Text.ToString();
+          
+            if ((string.IsNullOrEmpty(annee1.Text) ) && (string.IsNullOrEmpty(annee2.Text)))
+            {
+
+                req = "select * from projet p JOIN lignes l on l.N_DIL=p.N_DI join poste pr on pr.N_DI= l.N_DIL where p.N_DI like '%" + n + "%' AND region like '%" + reg + "%' AND p.Direction like '%" + d + "%' AND p.Finalite like '%" + finalite + "%' AND  p.Financement like '%" + f + "%' ";
+
+            }
+            else if (!(annee1.Text == " " && annee2.Text == ""))
+                    {
+                req = "select * from projet p JOIN lignes l on l.N_DIL=p.N_DI join poste pr on pr.N_DI= l.N_DIL where p.N_DI like '%" + n + "%' AND region like '%" + reg + "%' AND p.Direction like '%" + d + "%' AND p.Finalite like '%" + finalite + "%' AND  p.Financement like '%" + f + "%' AND   p.annee between " + Int32.Parse(annee1.Text) + " and " + Int32.Parse(annee2.Text);
+
+            }
 
 
-                SqlCommand cmd = new SqlCommand(req , con);
+            SqlCommand cmd = new SqlCommand(req , con);
              
                 SqlDataReader dr = cmd.ExecuteReader();
 
@@ -40,7 +55,7 @@ namespace ONEEprjt
                 BindingSource bSource = new BindingSource();
                 bSource.DataSource = t;
 
-                dataGridView3.DataSource = bSource;
+                dataGridView1.DataSource = bSource;
 
                 dr.Close();
 
@@ -65,53 +80,44 @@ namespace ONEEprjt
 
         private void searchbydate_Load(object sender, EventArgs e)
         {
-            comboBox1.Text = "-";
-            comboBox2.Text = "-";
+
+            
 
             remplircombo();
-             
-         
-            
-            foreach (System.Windows.Forms.Control c in this.Controls)
-            {
-                if (c is System.Windows.Forms.TextBox) //Si le control est un textbox..
-                    c.Text = "-";
+          
+            //foreach (System.Windows.Forms.Control c in this.Controls)
+            //{
+            //    if (c is System.Windows.Forms.TextBox) //Si le control est un textbox..
+            //        c.Text = "-";
 
-            }
-            comboBox1.Text = "";
-             
-            dateTimePicker2.CustomFormat = "1900-01-01";
-dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            dateentree.CustomFormat = "1900-01-01";
-            dateentree.Format = DateTimePickerFormat.Custom;
+            //}
+            
+ 
         }
 
         public void vider ()
         {
-            foreach (System.Windows.Forms.Control c in this.Controls)
-            {
-                if (c is System.Windows.Forms.TextBox) //Si le control est un textbox..
-                    c.Text = "-";
+            //foreach (System.Windows.Forms.Control c in this.Controls)
+            //{
+            //    if (c is System.Windows.Forms.TextBox) //Si le control est un textbox..
+                  
+            //            // c.Text = "%%";
 
-            }
-            dateTimePicker2_ValueChanged(dateTimePicker2, null);
-            dateentree_ValueChanged(dateentree, null);
-            dateTimePicker2.CustomFormat = "1900-01-01";
-            dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            dateentree.CustomFormat = "1900-01-01";
-            dateentree.Format = DateTimePickerFormat.Custom;
-            dataGridView3.DataSource = null;
+            //}
+       
+            dataGridView1.DataSource = null;
+            comboBox1.Text = "";
+            comboBox2.Text="";
 
         }
         private void dateentree_ValueChanged(object sender, EventArgs e)
         {
-            dateentree.CustomFormat = "dd/MM/yyyy hh:mm:ss";
+          
         }
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
-            dateTimePicker2.CustomFormat = "dd/MM/yyyy hh:mm:ss";
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -133,46 +139,46 @@ dateTimePicker2.Format = DateTimePickerFormat.Custom;
       
         private void button2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
-                excel.Visible = true;
-                Microsoft.Office.Interop.Excel.Workbook workbook = excel.Workbooks.Add(System.Reflection.Missing.Value);
-                Microsoft.Office.Interop.Excel.Worksheet sheet1 = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Sheets[1];
-                int StartCol = 1;
-                int StartRow = 1;
-                int j = 0, i = 0;
+            //try
+            //{
+            //    Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+            //    excel.Visible = true;
+            //    Microsoft.Office.Interop.Excel.Workbook workbook = excel.Workbooks.Add(System.Reflection.Missing.Value);
+            //    Microsoft.Office.Interop.Excel.Worksheet sheet1 = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Sheets[1];
+            //    int StartCol = 1;
+            //    int StartRow = 1;
+            //    int j = 0, i = 0;
 
-                //Write Headers
-                for (j = 0; j < dataGridView3.Columns.Count; j++)
-                {
-                    Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)sheet1.Cells[StartRow, StartCol + j];
-                    myRange.Value2 = dataGridView3.Columns[j].HeaderText;
-                }
+            //    //Write Headers
+            //    for (j = 0; j < dataGridView1.Columns.Count; j++)
+            //    {
+            //        Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)sheet1.Cells[StartRow, StartCol + j];
+            //        myRange.Value2 = dataGridView1.Columns[j].HeaderText;
+            //    }
 
-                StartRow++;
+            //    StartRow++;
 
-                //Write datagridview content
-                for (i = 0; i < dataGridView3.Rows.Count; i++)
-                {
-                    for (j = 0; j < dataGridView3.Columns.Count; j++)
-                    {
-                        try
-                        {
-                            Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)sheet1.Cells[StartRow + i, StartCol + j];
-                            myRange.Value2 = dataGridView3[j, i].Value == null ? "" : dataGridView3[j, i].Value;
-                        }
-                        catch
-                        {
-                            ;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+            //    //Write datagridview content
+            //    for (i = 0; i < dataGridView1.Rows.Count; i++)
+            //    {
+            //        for (j = 0; j < dataGridView1.Columns.Count; j++)
+            //        {
+            //            try
+            //            {
+            //                Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)sheet1.Cells[StartRow + i, StartCol + j];
+            //                myRange.Value2 = dataGridView1[j, i].Value == null ? "" : dataGridView1[j, i].Value;
+            //            }
+            //            catch
+            //            {
+            //                ;
+            //            }
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.ToString());
+            //}
 
 
 
@@ -186,7 +192,7 @@ dateTimePicker2.Format = DateTimePickerFormat.Custom;
 
         private void button3_Click(object sender, EventArgs e)
         {
-            dataGridView3.DataSource = null;
+            dataGridView1.DataSource = null;
             con.Open();
 
             string req = "select * from projet p join lignes l on p.N_DI=l.N_DIL join poste pp on pp.N_DI=l.N_DIL";
@@ -305,6 +311,11 @@ dateTimePicker2.Format = DateTimePickerFormat.Custom;
             s.Close();
             rapport r = new rapport();
             r.Show();
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

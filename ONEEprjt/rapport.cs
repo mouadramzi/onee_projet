@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CrystalDecisions;
 
 namespace ONEEprjt
 {
@@ -65,6 +66,16 @@ namespace ONEEprjt
         private void rapport_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            rapport rp = new rapport();
+            this.Hide();
+            rp.Close();
+            export dp = new export();
+            dp.Show();
+
         }
     }
 }

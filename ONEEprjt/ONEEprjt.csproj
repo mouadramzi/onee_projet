@@ -72,13 +72,24 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReport3.rpt</DependentUpon>
-      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="export.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="export.Designer.cs">
+      <DependentUpon>export.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="import.Designer.cs">
+      <DependentUpon>import.cs</DependentUpon>
     </Compile>
     <Compile Include="infoglobale.cs">
       <SubType>Form</SubType>
@@ -168,8 +179,14 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport3.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="export.resx">
+      <DependentUpon>export.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="import.resx">
+      <DependentUpon>import.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="infoglobale.resx">
       <DependentUpon>infoglobale.cs</DependentUpon>

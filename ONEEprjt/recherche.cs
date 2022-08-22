@@ -94,6 +94,8 @@ namespace ONEEprjt
 
         private void recherche_Load(object sender, EventArgs e)
         {
+          
+
             dataGridView2.DataSource = o.poste.ToList();
              dataGridView1.DataSource = o.lignes.ToList();
             dataGridView3.DataSource = o.projet.ToList();
@@ -102,12 +104,11 @@ namespace ONEEprjt
             datemes.Text = null;
             direction.Text = null;
             recherche fm = new recherche();
-            foreach (Object myObject in fm.Controls)
+            foreach (Control c in this.Controls)
             {
-                if (myObject is TextBox)
-                {
-                    (myObject as TextBox).Text = null; 
-                }
+                if (c is System.Windows.Forms.TextBox) //Si le control est un textbox..
+                    c.Text = "-";
+
             }
 
         }
@@ -151,6 +152,7 @@ namespace ONEEprjt
             naviguer(0);
         }
 
+
         private void modifierlink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             recherche sf = new recherche();
@@ -172,9 +174,8 @@ namespace ONEEprjt
                 string req = "select * from projet where N_DI like'" + ndiprojet.Text + "'" + "or Direction like'"
                     + direction.Text + "'" + "or DESIGNATION  like'"
                     + designation.Text + "'" + "or region like'"
-                    + region.Text + "'" + "or annee like'"
-                    + datemes.Text + "'" + "or region   like'"
-                    + regiontxt.Text + "'" + "or Financement like'"
+                    + regiontxt.Text + "'" + "or annee like'"
+                    + datemes.Text + "'"   + "or Financement like'"
                     + finance.Text + "'" + "or Finalite  like'"
                     + finalite.Text + "'" + "or FICHE like'" + fiche.Text + "'"
                     + "or Montant_DI like'" + montant.Text + "'";
@@ -262,5 +263,71 @@ namespace ONEEprjt
 
 
                         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                excel.Visible = true;
+                Microsoft.Office.Interop.Excel.Workbook workbook = excel.Workbooks.Add(System.Reflection.Missing.Value);
+                Microsoft.Office.Interop.Excel.Worksheet sheet1 = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Sheets[1];
+                int StartCol = 1;
+                int StartRow = 1;
+                int j = 0, i = 0;
+
+                //Write Headers
+                for (j = 0; j < dataGridView2.Columns.Count; j++)
+                {
+                    Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)sheet1.Cells[StartRow, StartCol + j];
+                    myRange.Value2 = dataGridView2.Columns[j].HeaderText;
+                }
+
+                StartRow++;
+
+                //Write datagridview content
+                for (i = 0; i < dataGridView2.Rows.Count; i++)
+                {
+                    for (j = 0; j < dataGridView2.Columns.Count; j++)
+                    {
+                        try
+                        {
+                            Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)sheet1.Cells[StartRow + i, StartCol + j];
+                            myRange.Value2 = dataGridView2[j, i].Value == null ? "" : dataGridView2[j, i].Value;
+                        }
+                        catch
+                        {
+                            ;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+        }
+
+        private void linkLabel7_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+            recherche r = new recherche();
+            this.Hide();
+            r.Close();
+            export sf = new export();
+            sf.Show();
+
+        }
     }
 }

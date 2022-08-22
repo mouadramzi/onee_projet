@@ -44,23 +44,20 @@
             this.Financement = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.dateentree = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.finance = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.projetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.projetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.annee1 = new System.Windows.Forms.TextBox();
+            this.annee2 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projetBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -246,24 +243,6 @@
             this.label16.TabIndex = 118;
             this.label16.Text = "Date_mes";
             // 
-            // dateentree
-            // 
-            this.dateentree.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateentree.Location = new System.Drawing.Point(274, 246);
-            this.dateentree.Name = "dateentree";
-            this.dateentree.Size = new System.Drawing.Size(126, 20);
-            this.dateentree.TabIndex = 122;
-            this.dateentree.ValueChanged += new System.EventHandler(this.dateentree_ValueChanged);
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(274, 214);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(126, 20);
-            this.dateTimePicker2.TabIndex = 123;
-            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -282,14 +261,6 @@
             this.button5.Text = "Rechercher";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(488, 33);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(637, 158);
-            this.dataGridView3.TabIndex = 126;
             // 
             // button1
             // 
@@ -345,16 +316,6 @@
             this.comboBox2.Size = new System.Drawing.Size(208, 21);
             this.comboBox2.TabIndex = 129;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(731, 212);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 23);
-            this.button2.TabIndex = 130;
-            this.button2.Text = "Export";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -383,24 +344,36 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // annee1
+            // 
+            this.annee1.Location = new System.Drawing.Point(274, 215);
+            this.annee1.Name = "annee1";
+            this.annee1.Size = new System.Drawing.Size(100, 20);
+            this.annee1.TabIndex = 134;
+            // 
+            // annee2
+            // 
+            this.annee2.Location = new System.Drawing.Point(274, 246);
+            this.annee2.Name = "annee2";
+            this.annee2.Size = new System.Drawing.Size(100, 20);
+            this.annee2.TabIndex = 135;
+            // 
             // searchbydate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1124, 554);
+            this.Controls.Add(this.annee2);
+            this.Controls.Add(this.annee1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateentree);
             this.Controls.Add(this.label32);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label6);
@@ -416,7 +389,6 @@
             this.Load += new System.EventHandler(this.searchbydate_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projetBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -442,11 +414,8 @@
         private System.Windows.Forms.Label Financement;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.DateTimePicker dateentree;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Button button1;
         
         private System.Windows.Forms.TextBox finance;
@@ -457,9 +426,10 @@
         private System.Windows.Forms.BindingSource projetBindingSource1;
         //private ONEEDataSet1TableAdapters.projetTableAdapter projetTableAdapter1;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox annee1;
+        private System.Windows.Forms.TextBox annee2;
     }
 }

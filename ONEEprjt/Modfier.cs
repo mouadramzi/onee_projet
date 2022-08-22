@@ -41,7 +41,7 @@ namespace ONEEprjt
             comboBox1.Text = em.Statut_DI.ToString();
             contractantl.Text = em.Contractant.ToString();
             datepreservel.Text = em.Date_prévisionnelle_mes.ToString();
-            daterefl.Text = em.Date_référence.ToString();
+            daterefl.Text = em.date_miseenservice.ToString();
 
             dataGridView1.Rows[i].Selected = true;
 
@@ -60,7 +60,7 @@ namespace ONEEprjt
             ppuissnace.Text = em.Puissance_.ToString();
             ptension.Text = em.Tensions_Transformation_.ToString();
             pdateprevision.Text = em.Date_prévisionnelle_mes.ToString();
-            pdateref.Text = em.Date_référence.ToString();
+            pdateref.Text = em.Date_miseenservice.ToString();
             
             dataGridView1.Rows[i].Selected = true;
 
@@ -255,6 +255,15 @@ namespace ONEEprjt
             this.Hide();
             sf.Close();
             supprimer sp = new supprimer();
+            sp.Show();
+        }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Modfier sf = new Modfier();
+            this.Hide();
+            sf.Close();
+            export sp = new export();
             sp.Show();
         }
     }

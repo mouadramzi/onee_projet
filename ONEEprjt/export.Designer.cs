@@ -1,6 +1,6 @@
 ﻿namespace ONEEprjt
 {
-    partial class supprimer
+    partial class export
     {
         /// <summary>
         /// Required designer variable.
@@ -35,11 +35,14 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.link1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.ndi = new System.Windows.Forms.TextBox();
-            this.recherchel = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.suppbtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.label4 = new System.Windows.Forms.Label();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -68,12 +71,12 @@
             this.linkLabel2.Font = new System.Drawing.Font("Modern No. 20", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel2.ForeColor = System.Drawing.Color.White;
             this.linkLabel2.LinkColor = System.Drawing.Color.Yellow;
-            this.linkLabel2.Location = new System.Drawing.Point(41, 273);
+            this.linkLabel2.Location = new System.Drawing.Point(38, 276);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(90, 21);
+            this.linkLabel2.Size = new System.Drawing.Size(79, 21);
             this.linkLabel2.TabIndex = 6;
             this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Rapport :";
+            this.linkLabel2.Text = "Rapport";
             this.linkLabel2.UseMnemonic = false;
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
@@ -157,49 +160,94 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ONEE";
             // 
-            // label7
+            // label2
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(335, 45);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(32, 13);
-            this.label7.TabIndex = 42;
-            this.label7.Text = "N_DI";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Modern No. 20", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(464, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(323, 36);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Exporter les donnés ";
             // 
-            // ndi
+            // comboBox1
             // 
-            this.ndi.Location = new System.Drawing.Point(403, 42);
-            this.ndi.Name = "ndi";
-            this.ndi.Size = new System.Drawing.Size(100, 20);
-            this.ndi.TabIndex = 43;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "projet",
+            "lignes",
+            "poste"});
+            this.comboBox1.Location = new System.Drawing.Point(762, 114);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(223, 21);
+            this.comboBox1.TabIndex = 4;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // recherchel
+            // label3
             // 
-            this.recherchel.Location = new System.Drawing.Point(537, 38);
-            this.recherchel.Name = "recherchel";
-            this.recherchel.Size = new System.Drawing.Size(120, 26);
-            this.recherchel.TabIndex = 44;
-            this.recherchel.Text = "Rechercher";
-            this.recherchel.UseVisualStyleBackColor = true;
-            this.recherchel.Click += new System.EventHandler(this.recherchel_Click);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(568, 112);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(174, 24);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Choissir un tableau";
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(256, 128);
+            this.dataGridView1.Location = new System.Drawing.Point(206, 158);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(665, 175);
-            this.dataGridView1.TabIndex = 45;
+            this.dataGridView1.Size = new System.Drawing.Size(842, 208);
+            this.dataGridView1.TabIndex = 6;
             // 
-            // suppbtn
+            // button1
             // 
-            this.suppbtn.Location = new System.Drawing.Point(537, 333);
-            this.suppbtn.Name = "suppbtn";
-            this.suppbtn.Size = new System.Drawing.Size(120, 26);
-            this.suppbtn.TabIndex = 46;
-            this.suppbtn.Text = "Supprimer";
-            this.suppbtn.UseVisualStyleBackColor = true;
-            this.suppbtn.Click += new System.EventHandler(this.suppbtn_Click);
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(401, 382);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(202, 59);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Exporter";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(697, 382);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(202, 59);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Refresh";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(470, 118);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(39, 17);
+            this.radioButton1.TabIndex = 9;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "oui";
+            this.radioButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(250, 114);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(214, 24);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Choissir un tableau vide";
             // 
             // linkLabel3
             // 
@@ -209,29 +257,33 @@
             this.linkLabel3.Font = new System.Drawing.Font("Modern No. 20", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel3.ForeColor = System.Drawing.Color.White;
             this.linkLabel3.LinkColor = System.Drawing.Color.Yellow;
-            this.linkLabel3.Location = new System.Drawing.Point(38, 311);
+            this.linkLabel3.Location = new System.Drawing.Point(41, 315);
             this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(80, 21);
+            this.linkLabel3.Size = new System.Drawing.Size(69, 21);
             this.linkLabel3.TabIndex = 7;
             this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "Export :";
+            this.linkLabel3.Text = "Export";
+            this.linkLabel3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.linkLabel3.UseMnemonic = false;
-            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
-            // supprimer
+            // export
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1124, 530);
-            this.Controls.Add(this.suppbtn);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.ndi);
-            this.Controls.Add(this.recherchel);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
-            this.Name = "supprimer";
-            this.Text = "supprimer";
+            this.Name = "export";
+            this.Text = "export";
+            this.Load += new System.EventHandler(this.export_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -243,17 +295,20 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel supplink;
         private System.Windows.Forms.LinkLabel modifierlink;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel link1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox ndi;
-        private System.Windows.Forms.Button recherchel;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button suppbtn;
-        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.LinkLabel linkLabel3;
     }
 }

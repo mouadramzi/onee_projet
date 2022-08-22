@@ -105,5 +105,14 @@ namespace ONEEprjt
             rapport r = new rapport();
             r.Show();
         }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            supprimer sp = new supprimer();
+            this.Hide();
+            sp.Close();
+            export r = new export();
+            r.Show();
+        }
     }
 }

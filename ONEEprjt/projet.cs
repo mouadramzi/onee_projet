@@ -17,13 +17,15 @@ namespace ONEEprjt
         public string N_DI { get; set; }
         public string Direction { get; set; }
         public string DESIGNATION { get; set; }
-        public string Financement { get; set; }
         public string Finalite { get; set; }
+        public string sous_finalite { get; set; }
+        public string region { get; set; }
+        public string Financement { get; set; }
         public string FICHE { get; set; }
         public Nullable<double> Montant_DI { get; set; }
-        public string region { get; set; }
         public string Observations { get; set; }
-        public string annee { get; set; }
-        public string sous_finalite { get; set; }
+        public Nullable<int> annee { get; set; }
+        public Nullable<System.DateTime> date_miseenservice { get; set; }
+        public Nullable<double> taux_avancement { get; set; }
     }
 }

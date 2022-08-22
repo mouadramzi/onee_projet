@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,12 +14,33 @@ namespace ONEEprjt
     public partial class infoglobale : Form
     {
         ONEEEntities4 o = new ONEEEntities4();
+        SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Model1"].ConnectionString);
 
         public infoglobale()
         {
             InitializeComponent();
         }
 
+        public  void rempliregrid ()
+        {
+            dataGridView1.DataSource = null;
+            con.Open();
+            string req = "select * from projet ";
+            SqlCommand cmd = new SqlCommand(req,con);
+             
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            DataTable t = new DataTable();
+            t.Load(dr);
+            BindingSource bSource = new BindingSource();
+            bSource.DataSource = t;
+
+            dataGridView1.DataSource = bSource;
+
+            dr.Close();
+
+            con.Close();
+        }
         private void label15_Click(object sender, EventArgs e)
         {
 
@@ -48,22 +70,41 @@ namespace ONEEprjt
 
             }
         }
-        public void remplir()
+        
+        public void remplircombo()
         {
-          //  dataGridView1.DataSource = o.projet.ToList();
+            con.Open();
+            string requete = "SELECT distinct(Finalite) from dbo.projet where finalite is not null";
+            SqlCommand cmd = new SqlCommand(requete, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                finalite.Items.Add(dr.GetString(0));
+                finalite.DisplayMember = "Finalite";
+                finalite.ValueMember = "Finalite";
+            }
+            con.Close();
         }
-
         private void infoglobale_Load(object sender, EventArgs e)
         {
-            
-           dataGridView1.DataSource = o.projet.ToList();
-      
-         
-            DateTime now = DateTime.Now;
-            
 
-             
-            
+
+            rempliregrid();
+            foreach (System.Windows.Forms.Control c in this.Controls)
+            {
+                if (c is System.Windows.Forms.TextBox)
+                {
+ c.Text = "-";
+                }
+                 
+
+
+            }
+            remplircombo();
+
+
+
+
 
             if (radioButton1.Checked is false && radioButton2.Checked is false)
             {
@@ -78,33 +119,23 @@ namespace ONEEprjt
             {
                 if (comboBox1.Text == "Etudes ")
                 {
-                    lignes li = new lignes
-                    {
+                    DateTime now = DateTime.Now;
+                    int year1 = datemesl.Value.Year;
+                    con.Open();
+                    string req1 = "insert into lignes (N_DIL , [Nature Ouvrage],Montant_Contractuel,[Caractéristiques ], " +
+                        "Distance_km,Avancement,[Reference_ouvrage ],Statut_DI,Contractant,Date_prévisionnelle_mes," +
+                        "date_miseenservice,dbetude , annee) values ('" +
+                                           ndi.Text + " ' , '" + lnature.Text + " ' , " + double.Parse(lmontant.Text) + "   , '" +
+                                          lcaracteristique.Text + " ' ,  " + double.Parse(ldistance.Text) + "   ,  " +
+                                           double.Parse(lavancement.Text) + "  ,  '" + lreference.Text + "  ' , '" +
+                                           comboBox1.Text + " ' , '" + contractantl.Text + "  ' , '" + datepreservl.Text + " ' , '" +
+                                           datemesl.Text + " ' ,' " + now.ToString("yyyy/MM/dd") + " '," + year1 + ")"; 
 
-                        N_DIL = ndi.Text,
-                        Nature_Ouvrage = lnature.Text,
-                        Montant_Contractuel = double.Parse(lmontant.Text),
-                        Caractéristiques_ = lcaracteristique.Text,
-                        Distance_km = double.Parse(ldistance.Text),
-                        Avancement = double.Parse(lavancement.Text),
-                        Reference_ouvrage_ = lreference.Text
-                        ,
-                        dbetude = now1
-                        ,
-                        Statut_DI = comboBox1.Text
-                        ,
-                        Contractant = contractantl.Text
-                        ,
-                        Date_prévisionnelle_mes = datepreservel.Text
-                        ,
-                        Date_référence = daterefl.Text
-                    };
-                    o.lignes.Add(li);
-                    o.SaveChanges();
-                    List<lignes> ligness = new List<lignes>();
-                    ligness = o.lignes.ToList();
-                       dataGridView1.DataSource = ligness;
-                    MessageBox.Show("Bien Ajouter lignes ");
+                    SqlCommand cmd = new SqlCommand(req1, con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("l'ajout de ligne est fait avec succee");
+                    con.Close();
+                    return;
                 }
             }
             catch (Exception ex)
@@ -120,36 +151,26 @@ namespace ONEEprjt
 
             try
             {
-                DateTime now1 = DateTime.Now;
+                
                 if (comboBox2.Text == "Etudes ")
                 {
-                    poste po = new poste
-                    {
-                        N_DI = ndi.Text,
-                        Nature_Ouvrage = pnature.Text,
-                        Montant_Contractuel__kDH_ = pmontant.Text,
-                        Tensions_Transformation_ = ptension.Text,
-                        unité = punite.Text,
-                        Avancement_ = double.Parse(pavancement.Text),
-                        Puissance_ = double.Parse(ppuissnace.Text),
-                        dbetude = now1   ,
-                        Statut_DI = comboBox2.Text,
-                        Date_prévisionnelle_mes = double.Parse(dateperevisionp.Text),
-                        Date_référence=daterefp.Text
+                    DateTime now = DateTime.Now;
+                    int year1 = datemesp.Value.Year;
+                    con.Open();
+ string req1 = "insert into poste (N_DI , Nature_Ouvrage,[Montant_Contractuel_(kDH)],[Tensions_Transformation ], [Puissance ],unité,[Avancement ],[Statut DI],Contractant,Date_prévisionnelle_mes,date_miseenservice,dbetude, annee) values ('" +
+                        ndi.Text + " ' , '" + pnature.Text + " ' , " + double.Parse(pmontant.Text) + "  , '" +
+                        ptension.Text + " ' ,  " + double.Parse(ppuissnace.Text) + "   , '" +
+                        punite.Text + " ' ,  " + double.Parse(pavancement.Text) + "  , '" +
+                        comboBox2.Text + " ' , '" + contractantp.Text+ "  ' , '" + dateperevisionp.Text + " ' , '" +
+                        datemesp.Text + " ' , '" + now.ToString("yyyy/MM/dd") + "'," + year1+")";
 
-                    };
-                    o.poste.Add(po);
-                    o.SaveChanges();
-                    List<projet> infos = new List<projet>();
-                    infos = o.projet.ToList(); 
-
-                    MessageBox.Show("Bien Ajouter");
+                    SqlCommand cmd = new SqlCommand(req1, con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("l'ajout de poste est fait avec succee");
+                    con.Close();
                     return;
                 }
-
-
-                //  dataGridView1.DataSource = ligness;
-
+                 
             }
             catch (Exception ex)
             {
@@ -179,58 +200,38 @@ namespace ONEEprjt
             sf.Show();
 
         }
-        List<projet> l = new List<projet>();
-        projet Search(string code)
-        {
-            foreach (projet x in l)
-                if (code == x.N_DI)
-                    return x;
-            return null;
-        }
+        //List<projet> l = new List<projet>();
+        //projet Search(string code)
+        //{
+        //    foreach (projet x in l)
+        //        if (code == x.N_DI)
+        //            return x;
+        //    return null;
+        //}
 
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+ 
             try
             {
                 if (!(ndi.Text == ""))
                 {
-                    if (Search((ndi.Text)) != null)
-                    {
+                     
                         if (radioButton1.Checked) { lignesinfo(); }
                         else if (radioButton2.Checked) { postesinfo(); }
+                    int year1 = datemes.Value.Year;
+                    con.Open();
+                    string req1 = "insert into projet (N_DI , Direction,DESIGNATION,Finalite, sous_finalite,region,Financement,FICHE,Montant_DI,Observations,date_miseenservice,taux_avancement ,annee ) values ('" +
+                        ndi.Text + " ' , '" + direction.Text + " ' , '" + designation.Text + " ' , '" + finalite.Text + " ' , '" + sousfinalite.Text + " ' , '" +
+                        region.Text + " ' , '" + finance.Text + " ' , '" + fiche.Text + " ' , " + double.Parse(montant.Text) + "  , '" + observation.Text + " ' , '" + datemes.Text + " ' , " + double.Parse(tauxavancement.Text) + "," +year1+")";
 
-                        projet i = new projet
-                        {
-
-                            Direction = direction.Text,
-                            DESIGNATION = designation.Text,
-                            Financement = finance.Text,
-                            Finalite = finalite.Text,
-                            N_DI = ndi.Text,
-                            FICHE = fiche.Text,
-                            Montant_DI = double.Parse(montant.Text),
-                            region = region.Text,
-                            annee = datemes.Text,
-                            Observations = observation.Text,
-                            sous_finalite = sousfinalite.Text
-
-
-                        };
-                        o.projet.Add(i);
-                        o.SaveChanges();
-                        List<projet> infos = new List<projet>();
-                        infos = o.projet.ToList();
-                        dataGridView1.DataSource = o.projet.ToList();
-
-                        MessageBox.Show("Bien Ajouter");
-                        return;
-                    }
-
-                     else
-                    {
-                        MessageBox.Show("Existe deja ce numero ");
-                    }
+                    SqlCommand cmd = new SqlCommand(req1, con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("l'ajout de projet est fait avec succee");
+                    con.Close();
+                    return;
+                   
 
                 }
                 else
@@ -290,6 +291,66 @@ namespace ONEEprjt
             f.Close();
             supprimer sp = new supprimer();
             sp.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //int year1 = datemes.Value.Year;
+            //con.Open();
+            //string req1 = "insert into projet (N_DI , Direction,DESIGNATION,Finalite, sous_finalite,region,Financement,FICHE,Montant_DI,Observations,date_miseenservice,taux_avancement, annee) values ('" +
+            //    ndi.Text + " ' , '" + direction.Text + " ' , '" + designation.Text + " ' , '" + finalite.Text + " ' , '" + sousfinalite.Text + " ' , '" +
+            //    region.Text + " ' , '" + finance.Text + " ' , '" + fiche.Text + " ' , " + double.Parse(montant.Text) + "  , '" + observation.Text + " ' , '" + datemes.Text + " ' , " + double.Parse(tauxavancement.Text)+year1; 
+
+            //SqlCommand cmd = new SqlCommand(req1, con);
+            //cmd.ExecuteNonQuery();
+            //MessageBox.Show("l'ajout est fait avec succee");
+            //con.Close();
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+        private void datemes_ValueChanged_1(object sender, EventArgs e)
+        {
+            datemes.CustomFormat = "yyyy/MM/dd";
+        }
+
+        private void datepreservl_ValueChanged(object sender, EventArgs e)
+        {
+            datepreservl.CustomFormat = "yyyy/MM/dd";
+        }
+
+        private void datemesl_ValueChanged(object sender, EventArgs e)
+        {
+            datemesl.CustomFormat = "yyyy/MM/dd";
+        }
+
+        private void dateperevisionp_ValueChanged(object sender, EventArgs e)
+        {
+            dateperevisionp.CustomFormat = "yyyy/MM/dd";
+        }
+
+        private void datemesp_ValueChanged(object sender, EventArgs e)
+        {
+            datemesp.CustomFormat = "yyyy/MM/dd";
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            infoglobale f = new infoglobale();
+          
+            this.Hide();
+            f.Close();
+            export f1 = new export();
+            f1.Show();
         }
     }
 }

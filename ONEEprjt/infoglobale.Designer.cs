@@ -48,7 +48,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.direction = new System.Windows.Forms.TextBox();
@@ -59,6 +58,9 @@
             this.montant = new System.Windows.Forms.TextBox();
             this.observation = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.datemesl = new System.Windows.Forms.DateTimePicker();
+            this.datepreservl = new System.Windows.Forms.DateTimePicker();
+            this.label14 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lreference = new System.Windows.Forms.TextBox();
             this.lavancement = new System.Windows.Forms.TextBox();
@@ -72,20 +74,18 @@
             this.lnature = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.daterefl = new System.Windows.Forms.TextBox();
             this.contractantl = new System.Windows.Forms.TextBox();
-            this.datepreservel = new System.Windows.Forms.TextBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.datemesp = new System.Windows.Forms.DateTimePicker();
+            this.dateperevisionp = new System.Windows.Forms.DateTimePicker();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.daterefp = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.contractantp = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
-            this.dateperevisionp = new System.Windows.Forms.TextBox();
             this.pavancement = new System.Windows.Forms.TextBox();
             this.punite = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
@@ -103,12 +103,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
-            this.datemes = new System.Windows.Forms.TextBox();
             this.cachedCrystalReport21 = new ONEEprjt.CachedDistanceannee();
             this.finalite = new System.Windows.Forms.ComboBox();
             this.region = new System.Windows.Forms.ComboBox();
             this.label33 = new System.Windows.Forms.Label();
             this.sousfinalite = new System.Windows.Forms.TextBox();
+            this.datemes = new System.Windows.Forms.DateTimePicker();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -118,6 +119,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkBlue;
+            this.panel1.Controls.Add(this.linkLabel3);
             this.panel1.Controls.Add(this.linkLabel2);
             this.panel1.Controls.Add(this.supplink);
             this.panel1.Controls.Add(this.modifierlink);
@@ -336,15 +338,6 @@
             this.label13.TabIndex = 14;
             this.label13.Text = "taux_ d\'avancement";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(15, 264);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(84, 13);
-            this.label14.TabIndex = 13;
-            this.label14.Text = "Date_référence ";
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -425,6 +418,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.datemesl);
+            this.groupBox1.Controls.Add(this.datepreservl);
+            this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.lreference);
             this.groupBox1.Controls.Add(this.lavancement);
@@ -438,20 +434,46 @@
             this.groupBox1.Controls.Add(this.lnature);
             this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.daterefl);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.contractantl);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.datepreservel);
             this.groupBox1.Location = new System.Drawing.Point(493, 51);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(295, 301);
+            this.groupBox1.Size = new System.Drawing.Size(313, 301);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lignes";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // datemesl
+            // 
+            this.datemesl.CustomFormat = "yyyy/mm/dd";
+            this.datemesl.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datemesl.Location = new System.Drawing.Point(137, 266);
+            this.datemesl.Name = "datemesl";
+            this.datemesl.Size = new System.Drawing.Size(172, 20);
+            this.datemesl.TabIndex = 136;
+            this.datemesl.ValueChanged += new System.EventHandler(this.datemesl_ValueChanged);
+            // 
+            // datepreservl
+            // 
+            this.datepreservl.CustomFormat = "yyyy/mm/dd";
+            this.datepreservl.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datepreservl.Location = new System.Drawing.Point(137, 236);
+            this.datepreservl.Name = "datepreservl";
+            this.datepreservl.Size = new System.Drawing.Size(172, 20);
+            this.datepreservl.TabIndex = 135;
+            this.datepreservl.ValueChanged += new System.EventHandler(this.datepreservl_ValueChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 266);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(106, 13);
+            this.label14.TabIndex = 54;
+            this.label14.Text = "Date mise en service";
             // 
             // comboBox1
             // 
@@ -566,27 +588,12 @@
             this.label20.TabIndex = 36;
             this.label20.Text = "Caractéristiques ";
             // 
-            // daterefl
-            // 
-            this.daterefl.Location = new System.Drawing.Point(137, 263);
-            this.daterefl.Name = "daterefl";
-            this.daterefl.Size = new System.Drawing.Size(100, 20);
-            this.daterefl.TabIndex = 27;
-            // 
             // contractantl
             // 
             this.contractantl.Location = new System.Drawing.Point(137, 209);
             this.contractantl.Name = "contractantl";
             this.contractantl.Size = new System.Drawing.Size(100, 20);
             this.contractantl.TabIndex = 25;
-            // 
-            // datepreservel
-            // 
-            this.datepreservel.Location = new System.Drawing.Point(137, 236);
-            this.datepreservel.Name = "datepreservel";
-            this.datepreservel.Size = new System.Drawing.Size(100, 20);
-            this.datepreservel.TabIndex = 26;
-            this.datepreservel.Text = "0";
             // 
             // radioButton1
             // 
@@ -614,14 +621,14 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.datemesp);
+            this.groupBox2.Controls.Add(this.dateperevisionp);
             this.groupBox2.Controls.Add(this.comboBox2);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.daterefp);
             this.groupBox2.Controls.Add(this.label29);
             this.groupBox2.Controls.Add(this.label30);
             this.groupBox2.Controls.Add(this.contractantp);
             this.groupBox2.Controls.Add(this.label31);
-            this.groupBox2.Controls.Add(this.dateperevisionp);
             this.groupBox2.Controls.Add(this.pavancement);
             this.groupBox2.Controls.Add(this.punite);
             this.groupBox2.Controls.Add(this.label23);
@@ -634,12 +641,32 @@
             this.groupBox2.Controls.Add(this.pnature);
             this.groupBox2.Controls.Add(this.label27);
             this.groupBox2.Controls.Add(this.label28);
-            this.groupBox2.Location = new System.Drawing.Point(808, 51);
+            this.groupBox2.Location = new System.Drawing.Point(812, 51);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(295, 301);
+            this.groupBox2.Size = new System.Drawing.Size(291, 301);
             this.groupBox2.TabIndex = 41;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "poste";
+            // 
+            // datemesp
+            // 
+            this.datemesp.CustomFormat = "yyyy/mm/dd";
+            this.datemesp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datemesp.Location = new System.Drawing.Point(167, 261);
+            this.datemesp.Name = "datemesp";
+            this.datemesp.Size = new System.Drawing.Size(107, 20);
+            this.datemesp.TabIndex = 56;
+            this.datemesp.ValueChanged += new System.EventHandler(this.datemesp_ValueChanged);
+            // 
+            // dateperevisionp
+            // 
+            this.dateperevisionp.CustomFormat = "yyyy/mm/dd";
+            this.dateperevisionp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateperevisionp.Location = new System.Drawing.Point(167, 236);
+            this.dateperevisionp.Name = "dateperevisionp";
+            this.dateperevisionp.Size = new System.Drawing.Size(107, 20);
+            this.dateperevisionp.TabIndex = 55;
+            this.dateperevisionp.ValueChanged += new System.EventHandler(this.dateperevisionp_ValueChanged);
             // 
             // comboBox2
             // 
@@ -659,16 +686,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(15, 264);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 13);
+            this.label5.Size = new System.Drawing.Size(106, 13);
             this.label5.TabIndex = 44;
-            this.label5.Text = "Date_référence ";
-            // 
-            // daterefp
-            // 
-            this.daterefp.Location = new System.Drawing.Point(167, 263);
-            this.daterefp.Name = "daterefp";
-            this.daterefp.Size = new System.Drawing.Size(100, 20);
-            this.daterefp.TabIndex = 48;
+            this.label5.Text = "Date mise en service";
             // 
             // label29
             // 
@@ -703,14 +723,6 @@
             this.label31.Size = new System.Drawing.Size(52, 13);
             this.label31.TabIndex = 41;
             this.label31.Text = "Statut_DI";
-            // 
-            // dateperevisionp
-            // 
-            this.dateperevisionp.Location = new System.Drawing.Point(167, 236);
-            this.dateperevisionp.Name = "dateperevisionp";
-            this.dateperevisionp.Size = new System.Drawing.Size(100, 20);
-            this.dateperevisionp.TabIndex = 47;
-            this.dateperevisionp.Text = "0";
             // 
             // pavancement
             // 
@@ -855,13 +867,6 @@
             this.label32.TabIndex = 48;
             this.label32.Text = "Region";
             // 
-            // datemes
-            // 
-            this.datemes.Location = new System.Drawing.Point(351, 349);
-            this.datemes.Name = "datemes";
-            this.datemes.Size = new System.Drawing.Size(100, 20);
-            this.datemes.TabIndex = 54;
-            // 
             // finalite
             // 
             this.finalite.FormattingEnabled = true;
@@ -907,17 +912,45 @@
             this.sousfinalite.Size = new System.Drawing.Size(100, 20);
             this.sousfinalite.TabIndex = 132;
             // 
+            // datemes
+            // 
+            this.datemes.CustomFormat = "yyyy/mm/dd";
+            this.datemes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datemes.Location = new System.Drawing.Point(251, 345);
+            this.datemes.Name = "datemes";
+            this.datemes.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.datemes.Size = new System.Drawing.Size(200, 20);
+            this.datemes.TabIndex = 134;
+            this.datemes.ValueChanged += new System.EventHandler(this.datemes_ValueChanged_1);
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.BackColor = System.Drawing.Color.DarkBlue;
+            this.linkLabel3.DisabledLinkColor = System.Drawing.Color.Yellow;
+            this.linkLabel3.Font = new System.Drawing.Font("Modern No. 20", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel3.ForeColor = System.Drawing.Color.White;
+            this.linkLabel3.LinkColor = System.Drawing.Color.Yellow;
+            this.linkLabel3.Location = new System.Drawing.Point(41, 316);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(69, 21);
+            this.linkLabel3.TabIndex = 7;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "Export";
+            this.linkLabel3.UseMnemonic = false;
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
+            // 
             // infoglobale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1124, 530);
+            this.Controls.Add(this.datemes);
             this.Controls.Add(this.label33);
             this.Controls.Add(this.sousfinalite);
             this.Controls.Add(this.region);
             this.Controls.Add(this.finalite);
-            this.Controls.Add(this.datemes);
             this.Controls.Add(this.label32);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -979,7 +1012,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox direction;
@@ -1019,16 +1051,12 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.TextBox daterefl;
         private System.Windows.Forms.TextBox contractantl;
-        private System.Windows.Forms.TextBox datepreservel;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox daterefp;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox contractantp;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox dateperevisionp;
         private System.Windows.Forms.TextBox tauxavancement;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
@@ -1037,12 +1065,18 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.LinkLabel supplink;
-        private System.Windows.Forms.TextBox datemes;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private CachedDistanceannee cachedCrystalReport21;
         private System.Windows.Forms.ComboBox finalite;
         private System.Windows.Forms.ComboBox region;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TextBox sousfinalite;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DateTimePicker datemesp;
+        private System.Windows.Forms.DateTimePicker dateperevisionp;
+        private System.Windows.Forms.DateTimePicker datemes;
+        private System.Windows.Forms.DateTimePicker datemesl;
+        private System.Windows.Forms.DateTimePicker datepreservl;
+        private System.Windows.Forms.LinkLabel linkLabel3;
     }
 }
