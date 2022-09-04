@@ -36,7 +36,9 @@ namespace ONEEprjt
             if ((string.IsNullOrEmpty(annee1.Text) ) && (string.IsNullOrEmpty(annee2.Text)))
             {
 
-                req = "select * from projet p JOIN lignes l on l.N_DIL=p.N_DI join poste pr on pr.N_DI= l.N_DIL where p.N_DI like '%" + n + "%' AND region like '%" + reg + "%' AND p.Direction like '%" + d + "%' AND p.Finalite like '%" + finalite + "%' AND  p.Financement like '%" + f + "%' ";
+                req = "select * from projet p JOIN lignes l on l.N_DIL=p.N_DI join poste pr on pr.N_DI= l.N_DIL where p.N_DI like '%" + n + "%' AND region like '%" 
+                    + reg + "%' AND p.Direction like '%" + d + "%' AND p.Finalite like '%" 
+                    + finalite + "%' AND p.direction like '%" + direction.Text + "%' AND p.financement like '%" + finance.Text + "%'";
 
             }
             else if (!(annee1.Text == " " && annee2.Text == ""))
@@ -97,14 +99,14 @@ namespace ONEEprjt
 
         public void vider ()
         {
-            //foreach (System.Windows.Forms.Control c in this.Controls)
-            //{
-            //    if (c is System.Windows.Forms.TextBox) //Si le control est un textbox..
-                  
-            //            // c.Text = "%%";
+            foreach (System.Windows.Forms.Control c in this.Controls)
+            {
+                if (c is System.Windows.Forms.TextBox) //Si le control est un textbox..
 
-            //}
-       
+                        c.Text = "";
+
+            }
+
             dataGridView1.DataSource = null;
             comboBox1.Text = "";
             comboBox2.Text="";
@@ -316,6 +318,33 @@ namespace ONEEprjt
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            searchbydate s = new searchbydate();
+            this.Hide();
+            s.Close();
+            export r = new export();
+            r.Show();
+        }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            searchbydate s = new searchbydate();
+            this.Hide();
+            s.Close();
+            import ss = new import();
+            s.Show();
+        }
+
+        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            searchbydate s = new searchbydate();
+            this.Hide();
+            s.Close();
+            Dashboard ss = new Dashboard();
+            s.Show();
         }
     }
 }

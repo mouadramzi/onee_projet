@@ -87,7 +87,7 @@ namespace ONEEprjt
         }
         private void infoglobale_Load(object sender, EventArgs e)
         {
-
+            textBox1.Hide();
 
             rempliregrid();
             foreach (System.Windows.Forms.Control c in this.Controls)
@@ -117,7 +117,7 @@ namespace ONEEprjt
             DateTime now1 = DateTime.Now;
             try
             {
-                if (comboBox1.Text == "Etudes ")
+                if (comboBox1.Text == "Etudes")
                 {
                     DateTime now = DateTime.Now;
                     int year1 = datemesl.Value.Year;
@@ -137,6 +137,77 @@ namespace ONEEprjt
                     con.Close();
                     return;
                 }
+                if (comboBox1.Text == "Realisation")
+                {
+                    DateTime now = DateTime.Now;
+                    int year1 = datemesl.Value.Year;
+                    con.Open();
+                    string req1 = "insert into lignes (N_DIL , [Nature Ouvrage],Montant_Contractuel,[Caractéristiques ], " +
+                        "Distance_km,Avancement,[Reference_ouvrage ],Statut_DI,Contractant,Date_prévisionnelle_mes," +
+                        "date_miseenservice,dbrealisation , annee) values ('" +
+                                           ndi.Text + " ' , '" + lnature.Text + " ' , " + double.Parse(lmontant.Text) + "   , '" +
+                                          lcaracteristique.Text + " ' ,  " + double.Parse(ldistance.Text) + "   ,  " +
+                                           double.Parse(lavancement.Text) + "  ,  '" + lreference.Text + "  ' , '" +
+                                           comboBox1.Text + " ' , '" + contractantl.Text + "  ' , '" + datepreservl.Text + " ' , '" +
+                                           datemesl.Text + " ' ,' " + now.ToString("yyyy/MM/dd") + " '," + year1 + ")";
+
+                    SqlCommand cmd = new SqlCommand(req1, con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("l'ajout de ligne est fait avec succee");
+                    con.Close();
+                    return;
+                }
+                if (comboBox1.Text == "Consultation")
+                {
+                    DateTime now = DateTime.Now;
+                    int year1 = datemesl.Value.Year;
+                    con.Open();
+                    string req1 = "insert into lignes (N_DIL , [Nature Ouvrage],Montant_Contractuel,[Caractéristiques ], " +
+                        "Distance_km,Avancement,[Reference_ouvrage ],Statut_DI,Contractant,Date_prévisionnelle_mes," +
+                        "date_miseenservice,dbconsultation , annee) values ('" +
+                                           ndi.Text + " ' , '" + lnature.Text + " ' , " + double.Parse(lmontant.Text) + "   , '" +
+                                          lcaracteristique.Text + " ' ,  " + double.Parse(ldistance.Text) + "   ,  " +
+                                           double.Parse(lavancement.Text) + "  ,  '" + lreference.Text + "  ' , '" +
+                                           comboBox1.Text + " ' , '" + contractantl.Text + "  ' , '" + datepreservl.Text + " ' , '" +
+                                           datemesl.Text + " ' ,' " + now.ToString("yyyy/MM/dd") + " '," + year1 + ")";
+
+                    SqlCommand cmd = new SqlCommand(req1, con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("l'ajout de ligne est fait avec succee");
+                    con.Close();
+                    return;
+                }
+                if (comboBox1.Text == "Realiser")
+                {
+                    DateTime now = DateTime.Now;
+                    int year1 = datemesl.Value.Year;
+                    con.Open();
+                    string req1 = "insert into lignes (N_DIL , [Nature Ouvrage],Montant_Contractuel,[Caractéristiques ], " +
+                        "Distance_km,Avancement,[Reference_ouvrage ],Statut_DI,Contractant,Date_prévisionnelle_mes," +
+                        "date_miseenservice,dbrealiser , annee) values ('" +
+                                           ndi.Text + " ' , '" + lnature.Text + " ' , " + double.Parse(lmontant.Text) + "   , '" +
+                                          lcaracteristique.Text + " ' ,  " + double.Parse(ldistance.Text) + "   ,  " +
+                                           double.Parse(lavancement.Text) + "  ,  '" + lreference.Text + "  ' , '" +
+                                           comboBox1.Text + " ' , '" + contractantl.Text + "  ' , '" + datepreservl.Text + " ' , '" +
+                                           datemesl.Text + " ' ,' " + now.ToString("yyyy/MM/dd") + " '," + year1 + ")";
+
+                    SqlCommand cmd = new SqlCommand(req1, con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("l'ajout de ligne est fait avec succee");
+                    con.Close();
+                    return;
+                }
+
+
+
+
+
+
+
+
+
+
+
             }
             catch (Exception ex)
             {
@@ -152,7 +223,7 @@ namespace ONEEprjt
             try
             {
                 
-                if (comboBox2.Text == "Etudes ")
+                if (comboBox2.Text == "Etudes")
                 {
                     DateTime now = DateTime.Now;
                     int year1 = datemesp.Value.Year;
@@ -170,7 +241,87 @@ namespace ONEEprjt
                     con.Close();
                     return;
                 }
-                 
+                if (comboBox2.Text == "Consultation")
+                {
+                    DateTime now = DateTime.Now;
+                    int year1 = datemesp.Value.Year;
+                    con.Open();
+                    string req1 = "insert into poste (N_DI , Nature_Ouvrage,[Montant_Contractuel_(kDH)],[Tensions_Transformation ], [Puissance ],unité,[Avancement ],[Statut DI],Contractant,Date_prévisionnelle_mes,date_miseenservice,dbconsultation, annee) values ('" +
+                                           ndi.Text + " ' , '" + pnature.Text + " ' , " + double.Parse(pmontant.Text) + "  , '" +
+                                           ptension.Text + " ' ,  " + double.Parse(ppuissnace.Text) + "   , '" +
+                                           punite.Text + " ' ,  " + double.Parse(pavancement.Text) + "  , '" +
+                                           comboBox2.Text + " ' , '" + contractantp.Text + "  ' , '" + dateperevisionp.Text + " ' , '" +
+                                           datemesp.Text + " ' , '" + now.ToString("yyyy/MM/dd") + "'," + year1 + ")";
+
+                    SqlCommand cmd = new SqlCommand(req1, con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("l'ajout de poste est fait avec succee");
+                    con.Close();
+                    return;
+                }
+                if (comboBox2.Text == "Realisation")
+                {
+                    DateTime now = DateTime.Now;
+                    int year1 = datemesp.Value.Year;
+                    con.Open();
+                    string req1 = "insert into poste (N_DI , Nature_Ouvrage,[Montant_Contractuel_(kDH)],[Tensions_Transformation ], [Puissance ],unité,[Avancement ],[Statut DI],Contractant,Date_prévisionnelle_mes,date_miseenservice,dbrealisation, annee) values ('" +
+                                           ndi.Text + " ' , '" + pnature.Text + " ' , " + double.Parse(pmontant.Text) + "  , '" +
+                                           ptension.Text + " ' ,  " + double.Parse(ppuissnace.Text) + "   , '" +
+                                           punite.Text + " ' ,  " + double.Parse(pavancement.Text) + "  , '" +
+                                           comboBox2.Text + " ' , '" + contractantp.Text + "  ' , '" + dateperevisionp.Text + " ' , '" +
+                                           datemesp.Text + " ' , '" + now.ToString("yyyy/MM/dd") + "'," + year1 + ")";
+
+                    SqlCommand cmd = new SqlCommand(req1, con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("l'ajout de poste est fait avec succee");
+                    con.Close();
+                    return;
+                }
+
+
+                if (comboBox2.Text == "Realiser")
+                {
+                    DateTime now = DateTime.Now;
+                    int year1 = datemesp.Value.Year;
+                    con.Open();
+                    string req1 = "insert into poste (N_DI , Nature_Ouvrage,[Montant_Contractuel_(kDH)],[Tensions_Transformation ], [Puissance ],unité,[Avancement ],[Statut DI],Contractant,Date_prévisionnelle_mes,date_miseenservice,dbrealiser, annee) values ('" +
+                                           ndi.Text + " ' , '" + pnature.Text + " ' , " + double.Parse(pmontant.Text) + "  , '" +
+                                           ptension.Text + " ' ,  " + double.Parse(ppuissnace.Text) + "   , '" +
+                                           punite.Text + " ' ,  " + double.Parse(pavancement.Text) + "  , '" +
+                                           comboBox2.Text + " ' , '" + contractantp.Text + "  ' , '" + dateperevisionp.Text + " ' , '" +
+                                           datemesp.Text + " ' , '" + now.ToString("yyyy/MM/dd") + "'," + year1 + ")";
+
+                    SqlCommand cmd = new SqlCommand(req1, con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("l'ajout de poste est fait avec succee");
+                    con.Close();
+                    return;
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             }
             catch (Exception ex)
             {
@@ -351,6 +502,76 @@ namespace ONEEprjt
             f.Close();
             export f1 = new export();
             f1.Show();
+        }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            infoglobale f = new infoglobale();
+
+            this.Hide();
+            f.Close();
+            import f1 = new import();
+            f1.Show();
+        }
+
+        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            infoglobale f = new infoglobale();
+
+            this.Hide();
+            f.Close();
+            Dashboard d = new Dashboard();
+            d.Show();
+
+        }
+
+        private void label34_Click(object sender, EventArgs e)
+        {
+            if (label34.Text == "Autre")
+            {
+                finalite.Hide();
+                textBox1.Show();
+                label34.Text = "Ajouter ";
+            }
+            if(label34.Text=="Ajouter ")
+            {
+                if (textBox1.Text == "-")
+                {
+
+                }
+                else if (!(textBox1.Text  == "-"))
+                {
+                    finalite.Items.Add(textBox1.Text);
+                    finalite.Show();
+                    textBox1.Hide();
+                    label34.Text = "Autre";
+                }
+             
+            }
+            
+        }
+
+        private void punite_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            foreach (System.Windows.Forms.Control c in this.Controls)
+            {
+                if (c is System.Windows.Forms.TextBox) //Si le control est un textbox..
+
+                    c.Text = "";
+
+            }
+            foreach (System.Windows.Forms.Control c in this.Controls)
+            {
+                if (c is System.Windows.Forms.ComboBox) //Si le control est un textbox..
+
+                    c.Text = "";
+
+            }
         }
     }
 }

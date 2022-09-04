@@ -22,8 +22,8 @@ namespace ONEEprjt
         {
             //CrystalReport2 crystal = new CrystalReport2();
             //crystalReportViewer1.ReportSource = crystal;
-         CrystalReport3 crystal = new CrystalReport3();
-             crystalReportViewer1.ReportSource = crystal;
+            lastreport crystal = new lastreport();
+            crystalReportViewer1.ReportSource = crystal;
         }
 
         private void link1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -76,6 +76,26 @@ namespace ONEEprjt
             export dp = new export();
             dp.Show();
 
+        }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+            rapport rp = new rapport();
+            this.Hide();
+            rp.Close();
+            import dp = new import();
+            dp.Show();
+
+        }
+
+        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            rapport rp = new rapport();
+            this.Hide();
+            rp.Close();
+            Dashboard dp = new Dashboard();
+            dp.Show();
         }
     }
 }

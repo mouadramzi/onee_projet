@@ -31,13 +31,15 @@
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.CrystalReport21 = new ONEEprjt.Distanceannee();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.supplink = new System.Windows.Forms.LinkLabel();
             this.modifierlink = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.link1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +59,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkBlue;
+            this.panel1.Controls.Add(this.linkLabel5);
+            this.panel1.Controls.Add(this.linkLabel4);
             this.panel1.Controls.Add(this.linkLabel3);
             this.panel1.Controls.Add(this.linkLabel2);
             this.panel1.Controls.Add(this.supplink);
@@ -69,6 +73,40 @@
             this.panel1.Size = new System.Drawing.Size(202, 700);
             this.panel1.TabIndex = 2;
             // 
+            // linkLabel4
+            // 
+            this.linkLabel4.AutoSize = true;
+            this.linkLabel4.BackColor = System.Drawing.Color.DarkBlue;
+            this.linkLabel4.DisabledLinkColor = System.Drawing.Color.Yellow;
+            this.linkLabel4.Font = new System.Drawing.Font("Modern No. 20", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel4.ForeColor = System.Drawing.Color.White;
+            this.linkLabel4.LinkColor = System.Drawing.Color.Yellow;
+            this.linkLabel4.Location = new System.Drawing.Point(61, 407);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size(86, 21);
+            this.linkLabel4.TabIndex = 8;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Text = "Import : ";
+            this.linkLabel4.UseMnemonic = false;
+            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.BackColor = System.Drawing.Color.DarkBlue;
+            this.linkLabel3.DisabledLinkColor = System.Drawing.Color.Yellow;
+            this.linkLabel3.Font = new System.Drawing.Font("Modern No. 20", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel3.ForeColor = System.Drawing.Color.White;
+            this.linkLabel3.LinkColor = System.Drawing.Color.Yellow;
+            this.linkLabel3.Location = new System.Drawing.Point(64, 360);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(80, 21);
+            this.linkLabel3.TabIndex = 7;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "Export :";
+            this.linkLabel3.UseMnemonic = false;
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
+            // 
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
@@ -77,12 +115,12 @@
             this.linkLabel2.Font = new System.Drawing.Font("Modern No. 20", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel2.ForeColor = System.Drawing.Color.White;
             this.linkLabel2.LinkColor = System.Drawing.Color.Yellow;
-            this.linkLabel2.Location = new System.Drawing.Point(47, 251);
+            this.linkLabel2.Location = new System.Drawing.Point(59, 313);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(79, 21);
+            this.linkLabel2.Size = new System.Drawing.Size(90, 21);
             this.linkLabel2.TabIndex = 6;
             this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Rapport";
+            this.linkLabel2.Text = "Rapport :";
             this.linkLabel2.UseMnemonic = false;
             // 
             // supplink
@@ -93,7 +131,7 @@
             this.supplink.Font = new System.Drawing.Font("Modern No. 20", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.supplink.ForeColor = System.Drawing.Color.White;
             this.supplink.LinkColor = System.Drawing.Color.Yellow;
-            this.supplink.Location = new System.Drawing.Point(50, 208);
+            this.supplink.Location = new System.Drawing.Point(49, 266);
             this.supplink.Name = "supplink";
             this.supplink.Size = new System.Drawing.Size(110, 21);
             this.supplink.TabIndex = 5;
@@ -110,7 +148,7 @@
             this.modifierlink.Font = new System.Drawing.Font("Modern No. 20", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.modifierlink.ForeColor = System.Drawing.Color.White;
             this.modifierlink.LinkColor = System.Drawing.Color.Yellow;
-            this.modifierlink.Location = new System.Drawing.Point(47, 133);
+            this.modifierlink.Location = new System.Drawing.Point(53, 172);
             this.modifierlink.Name = "modifierlink";
             this.modifierlink.Size = new System.Drawing.Size(103, 21);
             this.modifierlink.TabIndex = 4;
@@ -127,7 +165,7 @@
             this.linkLabel1.Font = new System.Drawing.Font("Modern No. 20", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.ForeColor = System.Drawing.Color.White;
             this.linkLabel1.LinkColor = System.Drawing.Color.Yellow;
-            this.linkLabel1.Location = new System.Drawing.Point(47, 171);
+            this.linkLabel1.Location = new System.Drawing.Point(41, 219);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(126, 21);
             this.linkLabel1.TabIndex = 3;
@@ -144,7 +182,7 @@
             this.link1.Font = new System.Drawing.Font("Modern No. 20", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.link1.ForeColor = System.Drawing.Color.White;
             this.link1.LinkColor = System.Drawing.Color.Yellow;
-            this.link1.Location = new System.Drawing.Point(47, 89);
+            this.link1.Location = new System.Drawing.Point(58, 125);
             this.link1.Name = "link1";
             this.link1.Size = new System.Drawing.Size(93, 21);
             this.link1.TabIndex = 2;
@@ -159,28 +197,28 @@
             this.label1.BackColor = System.Drawing.Color.DarkBlue;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Yellow;
-            this.label1.Location = new System.Drawing.Point(47, 23);
+            this.label1.Location = new System.Drawing.Point(64, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "ONEE";
             // 
-            // linkLabel3
+            // linkLabel5
             // 
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.BackColor = System.Drawing.Color.DarkBlue;
-            this.linkLabel3.DisabledLinkColor = System.Drawing.Color.Yellow;
-            this.linkLabel3.Font = new System.Drawing.Font("Modern No. 20", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel3.ForeColor = System.Drawing.Color.White;
-            this.linkLabel3.LinkColor = System.Drawing.Color.Yellow;
-            this.linkLabel3.Location = new System.Drawing.Point(50, 290);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(64, 21);
-            this.linkLabel3.TabIndex = 7;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "export";
-            this.linkLabel3.UseMnemonic = false;
-            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
+            this.linkLabel5.AutoSize = true;
+            this.linkLabel5.BackColor = System.Drawing.Color.DarkBlue;
+            this.linkLabel5.DisabledLinkColor = System.Drawing.Color.Yellow;
+            this.linkLabel5.Font = new System.Drawing.Font("Modern No. 20", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel5.ForeColor = System.Drawing.Color.White;
+            this.linkLabel5.LinkColor = System.Drawing.Color.Yellow;
+            this.linkLabel5.Location = new System.Drawing.Point(47, 78);
+            this.linkLabel5.Name = "linkLabel5";
+            this.linkLabel5.Size = new System.Drawing.Size(114, 21);
+            this.linkLabel5.TabIndex = 11;
+            this.linkLabel5.TabStop = true;
+            this.linkLabel5.Text = "Dashboard :";
+            this.linkLabel5.UseMnemonic = false;
+            this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
             // 
             // rapport
             // 
@@ -211,5 +249,7 @@
         private System.Windows.Forms.LinkLabel link1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.LinkLabel linkLabel4;
+        private System.Windows.Forms.LinkLabel linkLabel5;
     }
 }

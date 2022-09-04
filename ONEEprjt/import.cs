@@ -168,5 +168,69 @@ namespace ONEEprjt
                 conn.Close();
             }
         }
+
+        private void link1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            import f = new import();
+            this.Hide();
+            f.Close();
+            infoglobale fr = new infoglobale();
+            fr.Show();
+
+        }
+
+        private void modifierlink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            import f = new import();
+            this.Hide();
+            f.Close();
+            Modfier g = new Modfier();
+            g.Show();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            import f = new import();
+            this.Hide();
+            f.Close();
+            recherche g = new recherche();
+            g.Show();
+        }
+
+        private void supplink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            import f = new import();
+            this.Hide();
+            f.Close();
+            supprimer g = new supprimer();
+            g.Show();
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            import f = new import();
+            this.Hide();
+            f.Close();
+            rapport g = new rapport();
+            g.Show();
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            import f = new import();
+            this.Hide();
+            f.Close();
+            export g = new export();
+            g.Show();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            import f = new import();
+            this.Hide();
+            f.Close();
+            Dashboard g = new Dashboard();
+            g.Show();
+        }
     }
 }

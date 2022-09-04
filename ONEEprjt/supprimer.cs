@@ -114,5 +114,23 @@ namespace ONEEprjt
             export r = new export();
             r.Show();
         }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            supprimer sp = new supprimer();
+            this.Hide();
+            sp.Close();
+            import r = new import();
+            r.Show();
+        }
+
+        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            supprimer sp = new supprimer();
+            this.Hide();
+            sp.Close();
+            Dashboard r = new Dashboard();
+            r.Show();
+        }
     }
 }

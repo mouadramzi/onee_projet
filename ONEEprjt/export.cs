@@ -176,5 +176,23 @@ namespace ONEEprjt
             rapport f = new rapport();
             f.Show();
         }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            export x = new export();
+            this.Hide();
+            x.Close();
+            import f = new import();
+            f.Show();
+        }
+
+        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            export x = new export();
+            this.Hide();
+            x.Close();
+            Dashboard f = new Dashboard();
+            f.Show();
+        }
     }
 }

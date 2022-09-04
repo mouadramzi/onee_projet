@@ -14,10 +14,15 @@ namespace ONEEprjt
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
+
+
+
+
+ Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new searchbydate());
-        }
+            Application.Run(new Dashboard());
+          
+    }
     }
 }
  

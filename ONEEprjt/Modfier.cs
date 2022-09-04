@@ -23,54 +23,41 @@ namespace ONEEprjt
 
         private void Modfier_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = o.lignes.ToList();
-            naviguer(0);
+             
         }
-        void naviguer(int i)
-        {
 
-            lignes em = o.lignes.ToList().ElementAt(i);
-
-            dataGridView1.ClearSelection();
-            lnature.Text = em.Nature_Ouvrage.ToString();
-            lmontant.Text = em.Montant_Contractuel.ToString();
-            lcaracteristique.Text = em.Caractéristiques_.ToString();
-            ldistance.Text = em.Distance_km.ToString();
-            lavancement.Text = em.Avancement.ToString();
-            lreference.Text = em.Reference_ouvrage_.ToString();
-            comboBox1.Text = em.Statut_DI.ToString();
-            contractantl.Text = em.Contractant.ToString();
-            datepreservel.Text = em.Date_prévisionnelle_mes.ToString();
-            daterefl.Text = em.date_miseenservice.ToString();
-
-            dataGridView1.Rows[i].Selected = true;
-
-        }
-        void naviguerp(int i)
-        {
-
-            poste em = o.poste.ToList().ElementAt(i);
-
-            dataGridView1.ClearSelection();
-           pnature.Text = em.Nature_Ouvrage.ToString();
-            pmontant.Text = em.Montant_Contractuel__kDH_.ToString();
-            punite.Text = em.unité.ToString();
-            comboBox2.Text = em.Statut_DI.ToString();
-            pavancement.Text = em.Avancement_.ToString();
-            ppuissnace.Text = em.Puissance_.ToString();
-            ptension.Text = em.Tensions_Transformation_.ToString();
-            pdateprevision.Text = em.Date_prévisionnelle_mes.ToString();
-            pdateref.Text = em.Date_miseenservice.ToString();
-            
-            dataGridView1.Rows[i].Selected = true;
-
-        }
-        int pos; 
+       
         private void recherchel_Click(object sender, EventArgs e)
         {
             if (radioButton1.Checked == true)
             {
                 searchl();
+            //    try
+            //    { 
+            //        cmd = new SqlCommand("select * from lignes where n_dil=108", con);
+            //        con.Open();
+            //        rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            //        rdr.Read();
+            //        lnature.Text = rdr[1].ToString();
+            //        lmontant.Text = rdr[2].ToString();
+            //    }
+            //    catch (Exception ex)
+            //    {
+                     
+            //    }
+            //    finally
+            //    {
+            //        rdr.Close();
+            //        con.Close();
+            //    }
+
+
+
+
+
+
+
+
             }
             else if (radioButton2.Checked==true)
             {
@@ -80,50 +67,62 @@ namespace ONEEprjt
          
        public void searchl()
         {
-            bool tr = false;
-            foreach (lignes ad in o.lignes.ToList())
+            con.Open();
+            string req = " select * from lignes where n_dil ='" + ndi.Text + "'";
+            SqlCommand cmd = new SqlCommand(req, con);
+             
+             
 
-                if (ad.N_DIL == ndi.Text)
-                {
-                    dataGridView1.Rows[pos].Selected = false;
-                    pos = o.lignes.ToList().IndexOf(ad);
-                    naviguer(pos);
-                    tr = true;
-                    break;
+                SqlDataReader dr = cmd.ExecuteReader();
+            dr.Read();
 
-                }
+               lnature.Text = dr[1].ToString();
 
-            if (tr == false)
-            {
-                MessageBox.Show("n'existe pas");
-                dataGridView1.ClearSelection();
+            lmontant.Text = dr[2].ToString();
+            lcaracteristique.Text = dr[3].ToString();
+            ldistance.Text = dr[4].ToString();
+            lavancement.Text = dr[5].ToString();
+            lreference.Text = dr[6].ToString();
+            comboBox1.Text = dr[7].ToString();
+            contractantl.Text = dr[8].ToString();
+            datepreservel.Text = dr[9].ToString();
+            daterefl.Text = dr[10].ToString();
 
-            }
+            con.Close();
+
+
 
         }
+       
         public void searchp()
         {
-            bool tr = false;
-            foreach (poste ad1 in o.poste.ToList())
+            con.Open();
+            string req = "select * from poste where n_di ='" + ndi.Text + "'";
+            SqlCommand cmd = new SqlCommand(req, con);
 
-                if (ad1.N_DI == ndi.Text)
-                {
-                    dataGridView1.Rows[pos].Selected = false;
-                    pos = o.poste.ToList().IndexOf(ad1);
-                    naviguerp(pos);
-                    tr = true;
-                    break;
 
-                }
 
-            if (tr == false)
-            {
-                MessageBox.Show("n'existe pas");
-                dataGridView1.ClearSelection();
+            SqlDataReader dr = cmd.ExecuteReader();
+            dr.Read();
 
-            }
+            pnature.Text = dr[1].ToString();
+
+            pmontant.Text = dr[2].ToString();
+            ptension.Text = dr[3].ToString();
+            ppuissnace.Text = dr[4].ToString();
+            punite.Text = dr[5].ToString();
+            pavancement.Text = dr[6].ToString();
+            comboBox2.Text = dr[7].ToString();
+            pcontractant.Text = dr[8].ToString();
+            pdateprevision.Text = dr[9].ToString();
+            pdateref.Text = dr[10].ToString();
+
+            con.Close();
+
+
+
+
         }
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -163,26 +162,37 @@ namespace ONEEprjt
             if (comboBox2.Text == "Consultation")
             {
                 con.Open();
-                string req1 = "update poste et Statut_DI ='" + comboBox2.Text + "'" + " , dfetudes =  GETDATE() ,  dbconsultation =  GETDATE() where n_di ='" + ndi.Text + "'";
+                string req1 = "update poste   set  [Statut DI]  ='" + comboBox2.Text + "'" + " , dfetudes =  GETDATE() ,  dbconsultation =  GETDATE() where n_di ='" + ndi.Text + "'";
                 SqlCommand cmd = new SqlCommand(req1, con);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("la modification est fait avec succee");
                 con.Close();
             }
 
-            else if (comboBox2.Text == "Realisation")
+            if (comboBox2.Text == "Etudes")
             {
                 con.Open();
-                string req1 = "update poste set Statut_DI ='" + comboBox2.Text + "'" + ", dfconsultation =  GETDATE() ,  dbrealisation =  GETDATE() where n_di ='" + ndi.Text + "'";
+                string req1 = "update poste set [Statut DI]  ='" + comboBox2.Text + "'" + " , dbetudes =  GETDATE()  where n_di ='" + ndi.Text + "'";
                 SqlCommand cmd = new SqlCommand(req1, con);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("la modification est fait avec succee");
                 con.Close();
             }
-            else if (comboBox2.Text == "Realiser")
+
+
+              if (comboBox2.Text == "Realisation")
             {
                 con.Open();
-                string req1 = "update poste set Statut_DI ='" + comboBox2.Text + "'" + " , dfrealisation =  GETDATE() ,  dbrealiser =  GETDATE() where n_di ='" + ndi.Text + "'";
+                string req1 = "update poste set [Statut DI]  ='" + comboBox2.Text + "'" + ", dfconsultation =  GETDATE() ,  dbrealisation =  GETDATE() where n_di ='" + ndi.Text + "'";
+                SqlCommand cmd = new SqlCommand(req1, con);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("la modification est fait avec succee");
+                con.Close();
+            }
+              if (comboBox2.Text == "Realiser")
+            {
+                con.Open();
+                string req1 = "update poste set [Statut DI]  ='" + comboBox2.Text + "'" + " , dfrealisation =  GETDATE() ,  dbrealiser =  GETDATE() where n_di ='" + ndi.Text + "'";
                 SqlCommand cmd = new SqlCommand(req1, con);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("la modification est fait avec succee");
@@ -265,6 +275,24 @@ namespace ONEEprjt
             sf.Close();
             export sp = new export();
             sp.Show();
+        }
+
+        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Modfier sf = new Modfier();
+            this.Hide();
+            sf.Close();
+            import sp = new import();
+            sp.Show();
+        }
+
+        private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Modfier sf = new Modfier();
+            this.Hide();
+            sf.Close();
+            Dashboard v = new Dashboard();
+            v.Show();
         }
     }
 }

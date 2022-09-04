@@ -71,12 +71,13 @@ namespace ONEEprjt
         {
 
             con.Open();
-            string req = "select * from lignes where N_DIL ='" + ndi.Text + "'"+ "or Montant_Contractuel ='"
-                +ldistance.Text+"'" + "or Caractéristiques  ='" 
-                + lcaracteristique.Text + "'" + "or Distance_km ='" 
-                + ldistance.Text + "'" + "or Avancement ='" 
-                + lavancement.Text + "'" + "or N_DIL ='" + ndi.Text + "'"
-                + "or Reference_ouvrage  ='" + lreference.Text + "'";
+            string req = "select * from lignes where N_DIL like '%" +ndi.Text +"%' And Montant_Contractuel like '%" 
+                + pmontant.Text+ "%' And Caractéristiques like '%"
+                +lcaracteristique.Text+ "%' And Distance_km  like '%"
+                +ldistance.Text+ "%' And Avancement like '%"
+                +lavancement.Text+"%' And  Reference_ouvrage like '%" 
+                +lreference.Text+"%' And statut_di like '%"
+                + lstatut.Text +"%'" ;
                  SqlCommand cmd = new SqlCommand();
              
             cmd.Connection = con;
@@ -98,11 +99,9 @@ namespace ONEEprjt
 
             dataGridView2.DataSource = o.poste.ToList();
              dataGridView1.DataSource = o.lignes.ToList();
-            dataGridView3.DataSource = o.projet.ToList();
-
+             
             naviguer(0);
-            datemes.Text = null;
-            direction.Text = null;
+        
             recherche fm = new recherche();
             foreach (Control c in this.Controls)
             {
@@ -124,16 +123,26 @@ namespace ONEEprjt
         private void button3_Click(object sender, EventArgs e)
         {
             con.Open();
-            string req = "select * from poste where N_DI ='" + ndip.Text + "'" + "or Nature_Ouvrage ='"
-                + pnature.Text + "'" + "or [Montant_Contractuel_(kDH)]  ='"
-                + pmontant.Text + "'" + "or Tensions_Transformation ='"
-                + ptension.Text + "'" + "or Puissance ='"
-                + double.Parse(ppuissnace.Text) + "'" + "or unité ='" + punite.Text + "'"
-                + "or Avancement  ='" + pavancement.Text + "'";
+          
+
+            string req1= "select * from poste where N_DI like '%" + ndip.Text + "%' And Nature_Ouvrage like '%"
+               + pnature.Text + "%' And [Montant_Contractuel_(kDH)]  like '%"
+               + pmontant.Text + "%' And Tensions_Transformation  like '%"
+               + ptension.Text + "%' And Puissance like '%"
+               + ppuissnace.Text + "%' And  unité like '%"
+               + punite.Text + "%' And Avancement like '%"
+               + pavancement.Text + "%'";
+
+
+
+
+
+
+
             SqlCommand cmd = new SqlCommand();
 
             cmd.Connection = con;
-            cmd.CommandText = req;
+            cmd.CommandText = req1;
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable t = new DataTable();
             t.Load(dr);
@@ -167,39 +176,7 @@ namespace ONEEprjt
         private void button5_Click(object sender, EventArgs e)
         {
             
-            if (dataGridView3.DataSource != null)
-            {
-                dataGridView3.DataSource = null;
-                con.Open();
-                string req = "select * from projet where N_DI like'" + ndiprojet.Text + "'" + "or Direction like'"
-                    + direction.Text + "'" + "or DESIGNATION  like'"
-                    + designation.Text + "'" + "or region like'"
-                    + regiontxt.Text + "'" + "or annee like'"
-                    + datemes.Text + "'"   + "or Financement like'"
-                    + finance.Text + "'" + "or Finalite  like'"
-                    + finalite.Text + "'" + "or FICHE like'" + fiche.Text + "'"
-                    + "or Montant_DI like'" + montant.Text + "'";
-                SqlCommand cmd = new SqlCommand();
-
-                cmd.Connection = con;
-                cmd.CommandText = req;
-                SqlDataReader dr = cmd.ExecuteReader();
-
-                DataTable t = new DataTable();
-                t.Load(dr);
-                BindingSource bSource = new BindingSource();
-                bSource.DataSource = t;
-                
-                dataGridView3.DataSource = bSource;
-
-                dr.Close();
-
-                con.Close();
-            }
-            else
-            {
-                
-            }
+         
         }
 
         private void finance_TextChanged(object sender, EventArgs e)
@@ -254,11 +231,7 @@ namespace ONEEprjt
 
         private void button6_Click(object sender, EventArgs e)
         {
-            recherche r = new recherche();
-            this.Hide();
-            r.Close();
-            searchbydate sf = new searchbydate();
-            sf.Show();
+          
 
 
 
@@ -328,6 +301,39 @@ namespace ONEEprjt
             export sf = new export();
             sf.Show();
 
+        }
+
+        private void linkLabel8_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            recherche r = new recherche();
+            this.Hide();
+            r.Close();
+            import sf = new import();
+            sf.Show();
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel9_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            recherche r = new recherche();
+            this.Hide();
+            r.Close();
+            Dashboard sf = new Dashboard();
+            sf.Show();
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            recherche r = new recherche();
+            this.Hide();
+            r.Close();
+            searchbydate sf = new searchbydate();
+            sf.Show();
         }
     }
 }
