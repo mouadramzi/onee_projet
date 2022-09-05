@@ -16,8 +16,7 @@ namespace ONEEprjt
         public Modfier()
         {
             InitializeComponent();
-        }
-        ONEEEntities4 o = new ONEEEntities4();
+        } 
         SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Model1"].ConnectionString);
 
 

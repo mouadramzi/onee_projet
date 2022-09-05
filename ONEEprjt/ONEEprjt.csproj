@@ -12,6 +12,27 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\admin\Desktop\c#\pub\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <TargetCulture>fr</TargetCulture>
+    <ProductName>ONEE</ProductName>
+    <PublisherName>ONEE</PublisherName>
+    <SuiteName>ONEE</SuiteName>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +52,21 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>electricity.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>C6B52F7A2A2F2FD12F21E419436FFD2FD8A22DE8</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ONEEprjt_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CircularProgressBar, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -115,9 +151,6 @@
       <DependentUpon>lastreport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="lignes.cs">
-      <DependentUpon>onee_entity.tt</DependentUpon>
-    </Compile>
     <Compile Include="Modfier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,28 +169,7 @@
       <DependentUpon>Montantparregion.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="onee_entity.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>onee_entity.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="onee_entity.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>onee_entity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="onee_entity.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>onee_entity.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="poste.cs">
-      <DependentUpon>onee_entity.tt</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="projet.cs">
-      <DependentUpon>onee_entity.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="puissanceparunite.cs">
       <AutoGen>True</AutoGen>
@@ -255,13 +267,6 @@
     <EmbeddedResource Include="supprimer.resx">
       <DependentUpon>supprimer.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="onee_entity.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>onee_entity.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="onee_entity.edmx.diagram">
-      <DependentUpon>onee_entity.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -281,16 +286,7 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="onee_entity.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>onee_entity.edmx</DependentUpon>
-      <LastGenOutput>onee_entity.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="onee_entity.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>onee_entity.edmx</DependentUpon>
-      <LastGenOutput>onee_entity.cs</LastGenOutput>
-    </Content>
+    <Content Include="electricity.ico" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">
@@ -320,6 +316,28 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 et x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.SQLSysClrTypes.12.0.x64">
+      <Visible>False</Visible>
+      <ProductName>Types CLR du système Microsoft® pour SQL Server® 2014 %28x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="SAP.CrystalReports14.NET.2.0">
+      <Visible>False</Visible>
+      <ProductName>SAP Crystal Reports Runtime Engine for .NET Framework</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -18,8 +18,7 @@ namespace ONEEprjt
         public searchbydate()
         {
             InitializeComponent();
-        }
-        ONEEEntities4 o = new ONEEEntities4();
+        } 
         SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Model1"].ConnectionString);
         string req;
         private void button5_Click(object sender, EventArgs e)
@@ -36,14 +35,14 @@ namespace ONEEprjt
             if ((string.IsNullOrEmpty(annee1.Text) ) && (string.IsNullOrEmpty(annee2.Text)))
             {
 
-                req = "select * from projet p JOIN lignes l on l.N_DIL=p.N_DI join poste pr on pr.N_DI= l.N_DIL where p.N_DI like '%" + n + "%' AND region like '%" 
+                req = "select * from projet p  where p.N_DI like '%" + n + "%' AND region like '%" 
                     + reg + "%' AND p.Direction like '%" + d + "%' AND p.Finalite like '%" 
                     + finalite + "%' AND p.direction like '%" + direction.Text + "%' AND p.financement like '%" + finance.Text + "%'";
 
             }
             else if (!(annee1.Text == " " && annee2.Text == ""))
                     {
-                req = "select * from projet p JOIN lignes l on l.N_DIL=p.N_DI join poste pr on pr.N_DI= l.N_DIL where p.N_DI like '%" + n + "%' AND region like '%" + reg + "%' AND p.Direction like '%" + d + "%' AND p.Finalite like '%" + finalite + "%' AND  p.Financement like '%" + f + "%' AND   p.annee between " + Int32.Parse(annee1.Text) + " and " + Int32.Parse(annee2.Text);
+                req = "select * from projet p  where p.N_DI like '%" + n + "%' AND region like '%" + reg + "%' AND p.Direction like '%" + d + "%' AND p.Finalite like '%" + finalite + "%' AND  p.Financement like '%" + f + "%' AND   p.annee between " + Int32.Parse(annee1.Text) + " and " + Int32.Parse(annee2.Text);
 
             }
 
@@ -303,7 +302,7 @@ namespace ONEEprjt
             this.Hide();
             s.Close();
             supprimer ss = new supprimer();
-            s.Show();
+            ss.Show();
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

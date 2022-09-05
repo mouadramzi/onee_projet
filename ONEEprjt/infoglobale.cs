@@ -13,7 +13,7 @@ namespace ONEEprjt
 {
     public partial class infoglobale : Form
     {
-        ONEEEntities4 o = new ONEEEntities4();
+       
         SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Model1"].ConnectionString);
 
         public infoglobale()

@@ -13,8 +13,7 @@ using System.Windows.Forms;
 namespace ONEEprjt
 {
     public partial class recherche : Form
-    {
-        ONEEEntities4 o = new ONEEEntities4();
+    { 
         SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Model1"].ConnectionString); 
 
         public recherche()
@@ -52,18 +51,18 @@ namespace ONEEprjt
         void naviguer(int i=0)
         {
 
-             lignes em = o.lignes.ToList().ElementAt(i);
+            // lignes em = o.lignes.ToList().ElementAt(i);
 
-            dataGridView1.ClearSelection();
+            //dataGridView1.ClearSelection();
             
 
 
-            dataGridView1.Rows[i].Selected = true;
-            dataGridView2.ClearSelection();
+            //dataGridView1.Rows[i].Selected = true;
+            //dataGridView2.ClearSelection();
 
 
 
-            dataGridView2.Rows[i].Selected = true;
+            //dataGridView2.Rows[i].Selected = true;
 
         }
 
@@ -97,10 +96,7 @@ namespace ONEEprjt
         {
           
 
-            dataGridView2.DataSource = o.poste.ToList();
-             dataGridView1.DataSource = o.lignes.ToList();
              
-            naviguer(0);
         
             recherche fm = new recherche();
             foreach (Control c in this.Controls)
@@ -115,8 +111,7 @@ namespace ONEEprjt
         private void button1_Click(object sender, EventArgs e)
         {
             this.dataGridView1.DataSource = null;
-            dataGridView1.DataSource = o.lignes.ToList();
-            naviguer(0);
+           
 
         }
 
@@ -157,8 +152,7 @@ namespace ONEEprjt
         private void button2_Click(object sender, EventArgs e)
         {
             this.dataGridView2.DataSource = null;
-            dataGridView1.DataSource = o.poste.ToList();
-            naviguer(0);
+           
         }
 
 
